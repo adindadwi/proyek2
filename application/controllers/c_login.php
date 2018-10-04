@@ -33,19 +33,29 @@ class C_login extends CI_Controller
                                 $this->load->model('m_user');
 								$data['hasil']=$this->m_user->adminfromdb($this->input->post('username'));
 								$hasil=$data['hasil'];
-                                foreach($hasil as $listdata)
-                                    {
-                                        $session_data = array (
-                                            'nama' => $listdata->nama,
-                                            'user' => $listdata->username,
-                                            'foto' => $listdata->foto,
-                                            'rayon' => $listdata->rayon,
-                                            'log' =>""
-                                        );
-
-                                        $this->session->set_userdata($session_data);
-                                        redirect('home'); // redirect controller member
-                                    }
+                                foreach($hasil as $listdata):
+                                    
+                                        
+                                    $_SESSION['nama']=$listdata->nama;
+                                    
+                                    
+                                    $_SESSION['user']=$listdata->username;
+                                    
+                                    
+                                    $_SESSION['foto']=$listdata->foto;
+                                    
+                                    
+                                    $_SESSION['rayon']=$listdata->rayon;
+                                    
+                                    endforeach
+                                    
+                                    ;
+                                    
+                                    $_SESSION['log']="";
+                                    
+                                    redirect('home');	//redirect controller member
+                                    
+                            }else{
                                 // $_SESSION['nama']=$listdata->nama;
                                 // $_SESSION['user']=$listdata->username;
                                 // $_SESSION['foto']=$listdata->foto;

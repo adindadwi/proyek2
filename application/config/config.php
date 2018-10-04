@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= "http://localhost/rayon/";
+$config['base_url']	= "http://localhost/proyek2/";
 //$config['base_url']	= "http://192.168.1.1/LKAI/";
 //$config['base_url']	= "http://10.2.167.125/LKAI/";
 
