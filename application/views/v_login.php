@@ -22,7 +22,18 @@
 	  margin: 0 auto;
 	  width: 400px;
 	  height: 150px;
-		}
+        }
+        .body{
+	    background: url('background.jpg');
+	    color: #fff;
+        }
+        .imgcenter {
+      display: block;
+      margin: 0px auto;
+      text-align: center;
+      width: 100px;
+      height: 150px;
+}
 	</style>
 	<script type="text/javascript" src="<?php echo base_url()?>vendor/jquery-2.1.0-beta2.js"></script>
 	</head>
@@ -38,7 +49,8 @@
                         <?php echo $log ?>
                             
                         <?php echo form_open('c_login'); ?>
-                                    
+                            <img class="imgcenter" src="assets/img/images.jpg" >
+                            <br>
                             <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                         <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username / Email">                                                                

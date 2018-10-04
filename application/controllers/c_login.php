@@ -54,8 +54,6 @@ class C_login extends CI_Controller
                                     $_SESSION['log']="";
                                     
                                     redirect('home');	//redirect controller member
-                                    
-                            }else{
                                 // $_SESSION['nama']=$listdata->nama;
                                 // $_SESSION['user']=$listdata->username;
                                 // $_SESSION['foto']=$listdata->foto;

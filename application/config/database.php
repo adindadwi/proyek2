@@ -50,7 +50,7 @@ $active_record = TRUE;
 $db['default']['hostname'] = 'localhost';//'(DESCRIPTION = (ADDRESS= (PROTOCOL = TCP)(HOST = LOCALHOST)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ORCL)))';
 $db['default']['username'] = 'root';//'lkai';
 $db['default']['password'] = '';//'plnmalang';
-$db['default']['database'] = 'rayon';
+$db['default']['database'] = 'lkai';
 $db['default']['dbdriver'] = 'mysqli';//
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
