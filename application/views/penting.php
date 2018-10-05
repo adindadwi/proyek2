@@ -10,7 +10,7 @@
       <div class="col-xs-12">
         <div class="box">
             <div style="background-color: #4db4f9;" class="box-header">
-                    <h3 class="box-title"><font color="#f4f2f3">CATATAN PENGISIAN LKAI 2015</font></h3>                                    
+                    <h3 class="box-title"><font color="#f4f2f3">CATATAN PENGISIAN LKAI 2018/2019</font></h3>                                    
              </div><!-- /.box-header -->
               	<div class="box-body table-responsive">
                   <table>
@@ -28,15 +28,15 @@
 					</tr>
 					<tr>
 						<td>4.&nbsp;</td>
-						<td colspan="2">Pengisian Format Rekap LKAI 2015 :</td>
+						<td colspan="2">Pengisian Format Rekap LKAI 2018/2019 :</td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td colspan="2">&diams; hasil rekap per jenis pekerjaan pada blanko usulan agar diisikan dalam sheet Format Rekap LKAI 2015</td>
+						<td colspan="2">&diams; hasil rekap per jenis pekerjaan pada blanko usulan agar diisikan dalam sheet Format Rekap LKAI 2018/2019</td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
-						<td colspan="2">&diams; pengisian kolom "Jumlah PRK" dalam sheet Format Rekap LKAI 2015 dimaksudkan adalah untuk memecah / membagi satu jenis pekerjaan sehingga satu PRK diharapkan mempunyai nilai RAB yang tidak besar.</td>
+						<td colspan="2">&diams; pengisian kolom "Jumlah PRK" dalam sheet Format Rekap LKAI 2018/2019 dimaksudkan adalah untuk memecah / membagi satu jenis pekerjaan sehingga satu PRK diharapkan mempunyai nilai RAB yang tidak besar.</td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>
@@ -65,7 +65,7 @@
 					</tr>
 					<tr>
 						<td valign="top">5.&nbsp;</td>
-						<td colspan="2">semua usulan LKAI mulai tahun 2015 ini akan direncanakan di databasekan dan dikemas dalam suatu aplikasi berbasis web, sehingga diharapkan perlakuan terhadap PRK - PRK (yg sdh pernah diusulkan) akan berkelanjutan</td>
+						<td colspan="2">semua usulan LKAI mulai tahun 2018/2019 ini akan direncanakan di databasekan dan dikemas dalam suatu aplikasi berbasis web, sehingga diharapkan perlakuan terhadap PRK - PRK (yg sdh pernah diusulkan) akan berkelanjutan</td>
 					</tr>
 				</table>
 	            </div><!-- /.box-body -->
@@ -107,7 +107,7 @@
 					</tr>
 					<tr>
 						<td>8.&nbsp;</td>
-						<td>Untuk Pengiriman memakai File :<font color="#fd0000">AI 2015 - Usulan Area .........  </font>( diisi singkatan sesuai Area setempat, mis SBS / SBU / STB dsb )</td>
+						<td>Untuk Pengiriman memakai File :<font color="#fd0000">AI 2018/2019 - Usulan Area .........  </font>( diisi singkatan sesuai Area setempat, mis SBS / SBU / STB dsb )</td>
 					</tr>
 					<tr>
 						<td>9.&nbsp;</td>
@@ -137,11 +137,11 @@
 					<tbody>
 						<tr>
 							<td><font color="#ff0000"><b>JBR</b></font></td>
-							<td><font color="#ff0000"><b>2015</b></font></td>
+							<td><font color="#ff0000"><b>2018/2019</b></font></td>
 							<td><font color="#ff0000"><b>1</b></font></td>
 							<td><font color="#ff0000"><b>1</b></font></td>
 							<td><font color="#ff0000"><b>001</b></font></td>
-							<td><font color="#ff0000"><b>JBR.2015.1.1.001</b></font></td>
+							<td><font color="#ff0000"><b>JBR.2018/2019.1.1.001</b></font></td>
 							<td>Area Jember, Program Perkuatan Jaringan, Pekerjaan Rekonfigurasi Jaringan TM, Gbr nomor 1.</td>
 						</tr>
 					</tbody>
