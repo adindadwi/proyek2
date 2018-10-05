@@ -34,33 +34,15 @@ class C_login extends CI_Controller
 								$data['hasil']=$this->m_user->adminfromdb($this->input->post('username'));
 								$hasil=$data['hasil'];
                                 foreach($hasil as $listdata):
-                                    
-                                        
                                     $_SESSION['nama']=$listdata->nama;
-                                    
-                                    
                                     $_SESSION['user']=$listdata->username;
-                                    
-                                    
                                     $_SESSION['foto']=$listdata->foto;
-                                    
-                                    
                                     $_SESSION['rayon']=$listdata->rayon;
-                                    
-                                    endforeach
-                                    
-                                    ;
-                                    
+                                    endforeach;
                                     $_SESSION['log']="";
                                     
                                     redirect('home');	//redirect controller member
-                                // $_SESSION['nama']=$listdata->nama;
-                                // $_SESSION['user']=$listdata->username;
-                                // $_SESSION['foto']=$listdata->foto;
-								// $_SESSION['rayon']=$listdata->rayon;
-                                // endforeach;
-                                // $_SESSION['log']="";
-                                }else{
+                             
 							$data['log']="<div class='alert alert-danger alert-dismissable'>
 			  				<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  				<strong><font size='4'>Maaf!</font></strong> Username Password atau Rayon Salah

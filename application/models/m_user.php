@@ -9,7 +9,7 @@ class M_user extends CI_Model
   
         function cek_user_login($username, $password, $rayon)
         {
-        $query = "select * from user where username='".$username."' and password='".md5($password)."' and rayon='".$rayon."'";
+        $query = "select * from tb_user where username='".$username."' and password='".md5($password)."' and rayon='".$rayon."'";
         $hasil=$this->db->query($query);
  
         if ($hasil->num_rows() == 1) { // jika data = 1
@@ -23,7 +23,7 @@ class M_user extends CI_Model
         
         function adminfromdb($username)
         {
-		$query = "select * from user where username='".$username."'";
+		$query = "select * from tb_user where username='".$username."'";
         	$hasil=$this->db->query($query)->result();
         	return $hasil;
 		}
@@ -34,7 +34,7 @@ class M_user extends CI_Model
         	$pass=$data['pass'];
 		$rayon=$data['rayon'];
         	$foto=$data['gambar'];
-        	$query="insert into user values('','".$nama."','".$user."','".$pass."','".$foto."','".$rayon."')";
+        	$query="insert into tb_user values('','".$nama."','".$user."','".$pass."','".$foto."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
         }
