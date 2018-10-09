@@ -8,10 +8,14 @@ class C_sigup extends CI_Controller
 		  $this->load->library(array('form_validation','upload'));
 		  $this->load->model('m_captcha');
 		  $this->load->helper('captcha');
-          if ( !isset($_SESSION['log']) )
-          {
-		  	$_SESSION['log']="";
-		  }
+        //   if ( !isset($_SESSION['log']) )
+        //   {
+		//   	$_SESSION['log']="";
+		//   }
+		if (isset($_SESSION['log']))
+		{
+			$_SESSION['log']="";
+		}
 		 }
   
         public function index()
@@ -26,7 +30,7 @@ class C_sigup extends CI_Controller
 				array(
 					'field'=>'nama',
 					'label'=>'Nama',
-					'rules'=>'trim|required|min_length[3]|is_unique[user.nama]'
+					'rules'=>'trim|required|min_length[3]|is_unique[tb_user.nama]'
 				),
 				array(
 					'field'=>'user',
@@ -79,13 +83,13 @@ class C_sigup extends CI_Controller
         function valid_captcha($str)
  {
   $expiration = time()-300; // 5 minutes
-                $this->db->query("DELETE FROM captcha WHERE time < ".$expiration);
+                $this->db->query("DELETE FROM tb_captcha WHERE time < ".$expiration);
  
                 // Then see if a captcha exists:
                 $word=$_POST['captcha'];
                 $ip=$this->input->ip_address();
                 $time=$expiration;
-                $sql = "SELECT COUNT(*) AS count FROM captcha WHERE word = ".$word." AND ip_address = '".$ip."' AND time >".$time."";
+                $sql = "SELECT COUNT(*) AS count FROM tb_captcha WHERE word = ".$word." AND ip_address = '".$ip."' AND time >".$time."";
                 //$binds = array($_POST['captcha'], $this->input->ip_address(), $expiration);
                 $query = $this->db->query($sql);
                 $row = $query->row();

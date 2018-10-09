@@ -24,14 +24,14 @@ class M_captcha extends CI_Model
           $cap = create_captcha($vals);
           if ($cap)
           {
-                   $id   = '';
+                   $id       = '';
                    $time     = $cap['time'];
                    $ip       = $this -> input -> ip_address();
                    $word     = $cap['word'];
-                  $query = "insert into captcha values('".$id."',".$time.",'".$ip."','".$word."')";
-                  $this->db->query($query);
+                   $query    = "insert into tb_captcha values('".$id."',".$time.",'".$ip."','".$word."')";
+                   $this->db->query($query);
           }else {
-                                return "Captcha not work" ;
+                 return "Captcha not work" ;
                          }
                         //$data['cap'] = $cap;    
                     return $cap['image'];
