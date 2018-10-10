@@ -10,72 +10,72 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_penyubar_gi ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_penyubar_gi WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi WHERE ryn='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
 		
 		function simpanlokasitodb($data)
 		{
-			$gmb=$data['gmb'];
-			$gmb1=$data['gmb1'];
-			$lokasi=$data['lokasi'];
-			$exsist=$data['exsist'];
-			$penyulang=$data['penyulang'];
-			$jml_ganggu=$data['jml_ganggu'];
-			$rayon=$data['rayon'];
-			$query="insert into lok_penyubar_gi values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
+			$gmb=$data['n_gbr1'];
+			$gmb1=$data['n_gbr2'];
+			$lokasi=$data['lks'];
+			$exsist=$data['ex_sist'];
+			$penyulang=$data['penylang'];
+			$jml_ganggu=$data['jml_gangguan'];
+			$rayon=$data['ryn'];
+			$query="insert into kol_pnybar_gi values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM LOK_penyubar_gi WHERE id='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi WHERE id='".$id."'");
 			return $hasil;
 		}
 		
 		function deleteadbfromdb($id)
 		{
-			$query="DELETE FROM lok_penyubar_gi WHERE id = '".$id."'";
+			$query="DELETE FROM kol_pnybar_gi WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gambar_penyubar_gi WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbpenyubargi WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambar_penyubar_gi WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbpenyubargi WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
-			$gmb=$data['gambar'];
-			$query="insert into tb_gambar_penyubar_gi values('','".$id_lok."','".$gmb."')";
+			$id_lok=$data['lokasi_id'];
+			$gmb=$data['gambar2'];
+			$query="insert into tb_gmbpenyubargi values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function ceksutm($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyubar_gi_sutm WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_sutm WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		function cekmvtic($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyubar_gi_mvtic WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_mvtic WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		function cekugc($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyubar_gi_ugc WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_ugc WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		function simpansutmtodb($data)
@@ -116,7 +116,7 @@
 			$n1=$data['n1'];
 			$o1=$data['o1'];
 			$p1=$data['p1'];
-			$query="insert into penyubar_gi_sutm values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$n1."','".$o1."','".$p1."','".$q."','".$r."','".$s."','".$t."','".$u."')";
+			$query="insert into penyer_gi_sutm values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$n1."','".$o1."','".$p1."','".$q."','".$r."','".$s."','".$t."','".$u."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -184,7 +184,7 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="insert into penyubar_gi_mvtic values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
+			$query="insert into penyer_gi_mvtic values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -232,7 +232,7 @@
 			$c1=$data['c1'];
 			$d1=$data['d1'];
 			$e1=$data['e1'];
-			$query="insert into penyubar_gi_ugc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."')";
+			$query="insert into penyer_gi_ugc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -256,7 +256,7 @@
 		}
 		function showexviewfromdb($rayon)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_penyubar_gi a INNER JOIN penyubar_gi_mvtic b ON a.id=b.id_lok INNER JOIN penyubar_gi_sutm c ON a.id=c.id_lok INNER JOIN penyubar_gi_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
+			$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi a INNER JOIN penyer_gi_mvtic b ON a.id=b.id_lok INNER JOIN penyer_gi_sutm c ON a.id=c.id_lok INNER JOIN penyer_gi_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
 			return $hasil;
 		}
 	}

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-       <title>PLNMalang | <?php echo $title;?></title>
+       <title>PLN Malang | <?php echo $title;?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <link href="<?php echo base_url()?>assets/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="<?php echo base_url()?>assets/dist/css/bootstrap-theme.min.css">

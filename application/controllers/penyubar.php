@@ -71,13 +71,13 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['gmb']=$this->input->post('nogmb');
-			$data['gmb1']=$this->input->post('nogmb1');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['penyulang']=$this->input->post('penyulang');
-			$data['jml_ganggu']=$this->input->post('jml_ganggu');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['n_gbr1']=$this->input->post('nogmb');
+			$data['n_gbr2']=$this->input->post('nogmb1');
+			$data['lks']=$this->input->post('lokasi');
+			$data['ex_sist']=$this->input->post('exsist');
+			$data['penylang']=$this->input->post('penyulang');
+			$data['jml_gangguan']=$this->input->post('jml_ganggu');
+			$data['ryn']=$_SESSION['rayon'];
 			$this->load->model('m_penyubar');
 			$hasil=$this->m_penyubar->simpanlokasitodb($data);
 			redirect('penyubar');

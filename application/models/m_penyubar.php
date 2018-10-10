@@ -10,56 +10,56 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_penyubar ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * from kol_pnybar ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_penyubar WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * from kol_pnybar WHERE ryn='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
 		
 		function simpanlokasitodb($data)
 		{
-			$gmb=$data['gmb'];
-			$gmb1=$data['gmb1'];
-			$lokasi=$data['lokasi'];
-			$exsist=$data['exsist'];
-			$penyulang=$data['penyulang'];
-			$jml_ganggu=$data['jml_ganggu'];
-			$rayon=$data['rayon'];
-			$query="insert into lok_penyubar values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
+			$gmb=$data['n_gbr1'];
+			$gmb1=$data['n_gbr2'];
+			$lokasi=$data['lks'];
+			$exsist=$data['ex_sist'];
+			$penyulang=$data['penylang'];
+			$jml_ganggu=$data['jml_gangguan'];
+			$rayon=$data['ryn'];
+			$query="insert into kol_pnybar values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM LOK_penyubar WHERE id='".$id."'");
+			$hasil=$this->db->query("SELECT * from kol_pnybar WHERE id='".$id."'");
 			return $hasil;
 		}
 		
 		function deleteadbfromdb($id)
 		{
-			$query="DELETE FROM lok_penyubar WHERE id = '".$id."'";
+			$query="DELETE from kol_pnybar WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gambar_penyubar WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbpenyubar WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambar_penyubar WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbpenyubar WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
+			$id_lok=$data['lokasi_id'];
 			$gmb=$data['gambar'];
-			$query="insert into tb_gambar_penyubar values('','".$id_lok."','".$gmb."')";
+			$query="insert into tb_gmbpenyubar values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -256,7 +256,7 @@
 		}
 		function showexviewfromdb($rayon)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_penyubar a INNER JOIN penyubar_mvtic b ON a.id=b.id_lok INNER JOIN penyubar_sutm c ON a.id=c.id_lok INNER JOIN penyubar_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
+			$hasil=$this->db->query("SELECT * from kol_pnybar a INNER JOIN penyubar_mvtic b ON a.id=b.id_lok INNER JOIN penyubar_sutm c ON a.id=c.id_lok INNER JOIN penyubar_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
 			return $hasil;
 		}
 	}
