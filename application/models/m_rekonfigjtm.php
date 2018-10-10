@@ -8,65 +8,65 @@
 		 
 		function showlokfromdb()
 		{
-			if($_SESSION['rayon']=="Semua")
+			if($_SESSION['ryn']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rekjtm ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM kol_jtmrek ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rekjtm WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM kol_jtmrek WHERE ryn='".$_SESSION['ryn']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
 		
-		function simpanlokasitodb($data)
+		function simpanlkstodb($data)
 		{
-			$gmb=$data['gmb'];
-			$gmb1=$data['gmb1'];
-			$lokasi=$data['lokasi'];
-			$exsist=$data['exsist'];
-			$penyulang=$data['penyulang'];
+			$bgr_no=$data['bgr_no'];
+			$gbr2_no=$data['gbr2_no'];
+			$lks=$data['lks'];
+			$ex_sist=$data['ex_sist'];
+			$penylang=$data['penylang'];
 			$jml_ganggu=$data['jml_ganggu'];
-			$rayon=$data['rayon'];
-			$query="insert into lok_rekjtm(no_gmb1,no_gmb2,lokasi,exsist,penyulang,jumlah_ganggu,rayon,sutm,mvtic,ugc) values('".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."','0','0','0')";
+			$ryn=$data['ryn'];
+			$query="insert into kol_jtmrek(no_gmb1,no_gmb2,lks,ex_sist,penylang,jml_ganggu,ryn,mtsu,ctivm,cgu) values('".$bgr_no."','".$gbr2_no."','".$lks."','".$ex_sist."','".$penylang."','".$jml_ganggu."','".$ryn."','0','0','0')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rekjtm WHERE id='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM kol_jtmrek WHERE id='".$id."'");
 			return $hasil;
 		}
 		
 		function deleteadbfromdb($id)
 		{
-			$this->db->query("DELETE FROM rekjtm_sutm WHERE id_lok = '".$id."'");
-			$this->db->query("DELETE FROM rekjtm_mvtic WHERE id_lok = '".$id."'");
-			$this->db->query("DELETE FROM rekjtm_ugc WHERE id_lok = '".$id."'");
-			$this->db->query("DELETE FROM tb_gmb_rejtm WHERE id_lokasi = '".$id."'");
-			$query="DELETE FROM lok_rekjtm WHERE id = '".$id."'";
+			$this->db->query("DELETE FROM rekjtm_sut WHERE id_lok1 = '".$id."'");
+			$this->db->query("DELETE FROM rekjtm_ticmv WHERE id_lok1 = '".$id."'");
+			$this->db->query("DELETE FROM rekjtm_ugs WHERE id_lokasi = '".$id."'");
+			$this->db->query("DELETE FROM td_gmbrejtm WHERE id_lks = '".$id."'");
+			$query="DELETE FROM kol_jtmrek WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function ceksutm($id)
+		function ceksut($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_sutm WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_sut WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
-		function cekmvtic($id)
+		function cekctivm($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_mvtic WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_ticmv WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
-		function cekugc($id)
+		function cekcgu($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_ugc WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_ugc WHERE id_lokasi='".$id."'");
 			return $hasil;
 		}
 		
-		function simpansutmtodb($data)
+		function simpanmtsutodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -104,13 +104,13 @@
 			$n1=$data['n1'];
 			$o1=$data['o1'];
 			$p1=$data['p1'];
-			$query="insert into rekjtm_sutm values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$n1."','".$o1."','".$p1."','".$q."','".$r."','".$s."','".$t."','".$u."')";
+			$query="insert into rekjtm_sut values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$n1."','".$o1."','".$p1."','".$q."','".$r."','".$s."','".$t."','".$u."')";
 			$hasil=$this->db->query($query);
-			$this->db->query("UPDATE lok_rekjtm set sutm='1' WHERE id='".$idlok."' ");
+			$this->db->query("UPDATE kol_jtmrek set mtsu='1' WHERE id='".$idlok."' ");
 			return $hasil;
 		}
 		
-		function editsutmtodb($data)
+		function editmtsutodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -144,12 +144,12 @@
 			$n1=$data['n1'];
 			$o1=$data['o1'];
 			$p1=$data['p1'];
-			$query="UPDATE rekjtm_sutm SET TM1M='".$a."',TM2M='".$b."',TM4M='".$c."',TM5M='".$e."',TM8M='".$f."',TM10M='".$i."',TM11M='".$k."',CONDUCTOR='".$l."',EST_JARAK='".$m."',GWM='".$n."',HGWM='".$o."',SPM='".$p."',TM1UB='".$a1."',TM2UB='".$b1."',TM4UB='".$c1."',TM4XUB='".$d1."',TM5UB='".$e1."',TM8UB='".$f1."',TM8XUB='".$g1."',TM8XCUB='".$h1."',TM10UB='".$i1."',TM10XUB='".$j1."',TM11UB='".$k1."',GWUB='".$n1."',HGWUB='".$o1."',SPUB='".$p1."',UTAMA='".$q."',PENYANGGA='".$r."',FERLENG_STUCK='".$s."',GROUND_DALAM='".$t."',GROUND_LUAR='".$u."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE rekjtm_sut SET TM1M='".$a."',TM2M='".$b."',TM4M='".$c."',TM5M='".$e."',TM8M='".$f."',TM10M='".$i."',TM11M='".$k."',CONDUCTOR='".$l."',EST_JARAK='".$m."',GWM='".$n."',HGWM='".$o."',SPM='".$p."',TM1UB='".$a1."',TM2UB='".$b1."',TM4UB='".$c1."',TM4XUB='".$d1."',TM5UB='".$e1."',TM8UB='".$f1."',TM8XUB='".$g1."',TM8XCUB='".$h1."',TM10UB='".$i1."',TM10XUB='".$j1."',TM11UB='".$k1."',GWUB='".$n1."',HGWUB='".$o1."',SPUB='".$p1."',UTAMA='".$q."',PENYANGGA='".$r."',FERLENG_STUCK='".$s."',GROUND_DALAM='".$t."',GROUND_LUAR='".$u."' WHERE id_lok='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function simpanmvtictodb($data)
+		function simpanctivmtodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -174,13 +174,13 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="insert into rekjtm_mvtic values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
+			$query="insert into rekjtm_ticmv values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
 			$hasil=$this->db->query($query);
-			$this->db->query("UPDATE lok_rekjtm set mvtic='1' WHERE id='".$idlok."' ");
+			$this->db->query("UPDATE kol_jtmrek set ctivm='1' WHERE id='".$idlok."' ");
 			return $hasil;
 		}
 		
-		function editmvtictodb($data)
+		function editctivmtodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -205,12 +205,12 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="UPDATE rekjtm_mvtic SET MVTIC1M='".$a."',MVTIC2M='".$b."',MVTIC4M='".$c."',MVTIC4AM='".$d."',MVTIC5M='".$e."',MVTIC5AM='".$f."',MVTIC='".$g."',EST_JARAK1='".$h."',GWM1='".$i."',HGWM1='".$j."',SPM1='".$k."',MVTIC1UB='".$a1."',MVTIC2UB='".$b1."',MVTIC4UB='".$c1."',MVTIC4AUB='".$d1."',MVTIC5UB='".$e1."',MVTIC5AUB='".$f1."',GWUB1='".$i1."',HGWUB1='".$j1."',SPUB1='".$k1."',UTAMA1='".$l."',PENYANGGA1='".$m."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE rekjtm_ticmv SET MVTIC1M='".$a."',MVTIC2M='".$b."',MVTIC4M='".$c."',MVTIC4AM='".$d."',MVTIC5M='".$e."',MVTIC5AM='".$f."',MVTIC='".$g."',EST_JARAK1='".$h."',GWM1='".$i."',HGWM1='".$j."',SPM1='".$k."',MVTIC1UB='".$a1."',MVTIC2UB='".$b1."',MVTIC4UB='".$c1."',MVTIC4AUB='".$d1."',MVTIC5UB='".$e1."',MVTIC5AUB='".$f1."',GWUB1='".$i1."',HGWUB1='".$j1."',SPUB1='".$k1."',UTAMA1='".$l."',PENYANGGA1='".$m."' WHERE id_lok='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function simpanugctodb($data)
+		function simpancgutodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -226,11 +226,11 @@
 			$e1=$data['e1'];
 			$query="insert into rekjtm_ugc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."')";
 			$hasil=$this->db->query($query);
-			$this->db->query("UPDATE lok_rekjtm set ugc='1' WHERE id='".$idlok."' ");
+			$this->db->query("UPDATE kol_jtmrek set cgu='1' WHERE id='".$idlok."' ");
 			return $hasil;
 		}
 		
-		function editugctodb($data)
+		function editcgutodb($data)
 		{
 			$idlok=$data['id'];
 			$a=$data['a'];
@@ -251,47 +251,47 @@
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmb_rejtm WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM td_gmbrejtm WHERE id_lks='".$id."'");
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gmb_rejtm WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM td_gmbrejtm WHERE id_lks='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
+			$id_lok=$data['id_lks'];
 			$gmb=$data['gambar'];
-			$rayon=$data['rayon'];
-			$query="insert into tb_gmb_rejtm values('','".$id_lok."','".$gmb."','".$rayon."')";
+			$ryn=$data['ryn'];
+			$query="insert into td_gmbrejtm values('','".$id_lok."','".$gmb."','".$ryn."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function showsutmfromdb($id)
+		function showmtsufromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM rekjtm_sutm WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM rekjtm_sut WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		
-		function showmvticfromdb($id)
+		function showctivmfromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM rekjtm_mvtic WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM rekjtm_ticmv WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		
-		function showugcfromdb($id)
+		function showcgufromdb($id)
 		{
 			$hasil=$this->db->query("SELECT * FROM rekjtm_ugc WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		
-		function showexviewfromdb($rayon)
+		function showexviewfromdb($ryn)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rekjtm a INNER JOIN rekjtm_mvtic b ON a.id=b.id_lok INNER JOIN rekjtm_sutm c ON a.id=c.id_lok INNER JOIN rekjtm_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
+			$hasil=$this->db->query("SELECT * FROM kol_jtmrek a INNER JOIN rekjtm_ticmv b ON a.id=b.id_lok INNER JOIN rekjtm_sut c ON a.id=c.id_lok INNER JOIN rekjtm_ugc d ON a.id=d.id_lok WHERE a.ryn='".ucfirst($ryn)."'")->result();
 			return $hasil;
 		}
 	}

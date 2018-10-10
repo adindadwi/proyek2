@@ -8,44 +8,44 @@
 		 
 		function showlokfromdb()
 		{
-			if($_SESSION['rayon']=="Semua")
+			if($_SESSION['wilayah']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_sectionaliser ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_sectionalizer ORDER BY id_ ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_sectionaliser WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_sectionalizer WHERE wilayah='".$_SESSION['wilayah']."' ORDER BY id_ ASC")->result();
 			}
 			return $hasil;
 		}
 		
 		function showsectfromdb()
 		{
-			$hasil=$this->db->query("SELECT * FROM sectionaliser ORDER BY id ASC")->result();
+			$hasil=$this->db->query("SELECT * FROM sectionalizer ORDER BY id_ ASC")->result();
 			return $hasil;
 		}
 		
-		function addsectionfromdb($id)
+		function addsectionfromdb($id_)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_sectionaliser WHERE id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM lok_sectionalizer WHERE id_='".$id_."'")->result();
 			return $hasil;
 		}
 				
-		function ceksectline($id)
+		function ceksectline($id_)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM sectionaliser WHERE id_section='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM sectionalizer WHERE id_sect='".$id_."'");
 			return $hasil;
 		}
 		
 		function simpanlokasitodb($data)
 		{
-			$no_gambar=$data['no_gambar'];
-			$no_gambar2=$data['no_gambar2'];
-			$lokasi=$data['lokasi'];
-			$exsist=$data['exsist'];
-			$penyulang=$data['penyulang'];
-			$rayon=$data['rayon'];
-			$query="insert into lok_sectionaliser values('','".$no_gambar."','".$no_gambar2."','".$lokasi."','".$exsist."','".$penyulang."','".$rayon."')";
+			$gambar_no=$data['gambar_no'];
+			$gambar_no2=$data['gambar_no2'];
+			$lok_sect=$data['lok_sect'];
+			$exsisting=$data['exsisting'];
+			$penyalur=$data['penyalur'];
+			$wilayah=$data['wilayah'];
+			$query="insert into lok_sectionalizer values('','".$gambar_no."','".$gambar_no2."','".$lok_sect."','".$exsisting."','".$penyalur."','".$wilayah."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -53,47 +53,47 @@
 		function simpansectlinetodb($data)
 		{
 			
-			$idlok=$data['id'];
-			$section_ke=$data['section_ke'];
-			$tm1=$data['tm1'];
-			$tm2=$data['tm2'];
-			$tm5=$data['tm5'];
-			$avs=$data['avs'];
-			$reclozer=$data['reclozer'];
-			$lbs_mprtu=$data['lbs_mprtu'];
-			$lbs_mnrtu=$data['lbs_mnrtu'];
-			$reclozer2=$data['reclozer2'];
-			$lbs_mprtu2=$data['lbs_mprtu2'];
-			$lbs_mnrtu2=$data['lbs_mnrtu2'];
-			$pondasi=$data['pondasi'];
-			$lainnya=$data['lainnya'];
-			$query="insert into sectionaliser values('','".$idlok."','".$section_ke."','".$tm1."','".$tm2."','".$tm5."','".$avs."','".$reclozer."','".$lbs_mprtu."','".$lbs_mnrtu."','".$reclozer2."','".$lbs_mprtu2."','".$lbs_mnrtu2."','".$pondasi."','".$lainnya."')";
+			$id_lok=$data['id_'];
+			$sect_ke=$data['sect_ke'];
+			$teme1=$data['teme1'];
+			$tm2=$data['teme2'];
+			$teme5=$data['teme5'];
+			$avswitch=$data['avswitch'];
+			$recloser=$data['recloser'];
+			$lbswitch_mprtu2=$data['lbswitch_mprtu2	'];
+			$lbswitch_mnrtu2=$data['lbswitch_mnrtu2'];
+			$recloser2=$data['recloser2'];
+			$lbswitch_mprtu22=$data['lbswitch_mprtu22'];
+			$lbswitch_mnrtu22=$data['lbswitch_mnrtu22'];
+			$landasan=$data['landasan'];
+			$other=$data['other'];
+			$query="insert into sectionalizer values('','".$id_lok."','".$sect_ke."','".$teme1."','".$teme2."','".$teme5."','".$avswitch."','".$recloser."','".$lbswitch_mprtu2	."','".$lbswitch_mnrtu2."','".$recloser2."','".$lbswitch_mprtu22."','".$lbswitch_mnrtu22."','".$landasan."','".$other."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function deletesectfromdb($id)
+		function deletesectfromdb($id_)
 		{
-			$query="DELETE FROM lok_sectionaliser WHERE id = '".$id."'";
+			$query="DELETE FROM lok_sectionalizer WHERE id_ = '".$id_."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function gambarlinefromdb($id)
+		function gambarlinefromdb($id_)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gmbsect WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbsect WHERE lokasi_id='".$id_."'")->result();
 			return $hasil;
 		}
 		
-		function cekgmb($id)
+		function cekgmb($id_)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbsect WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbsect WHERE lokasi_id='".$id_."'");
 			return $hasil;
 		}
 		
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
+			$id__lok=$data['lokasi_id'];
 			$gmb=$data['gambar'];
 			$query="insert into tb_gmbsect values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);

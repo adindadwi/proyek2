@@ -24,16 +24,16 @@
         	$data['side3']="";
 			$this->template->display('RekonfigJTM/index',$data);
 		}
-		function lokasi(){ 
+		function lks(){ 
 			$this->load->model('m_rekonfigjtm');
 			
-			if($_POST['sbmtrayon'])
+			if($_POST['sbmtryn'])
 			{
-				if($_POST['rayon']=="")
+				if($_POST['ryn']=="")
 				{
 					$_SESSION['log']="<div class='alert alert-danger alert-dismissable'>
 					<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					<strong>Maaf!</strong> Anda belum memilih rayon	
+					<strong>Maaf!</strong> Anda belum memilih ryn	
 					</div>";
 					$this->load->model('m_comment');
 					$data['content']=$this->m_comment->posts(5,0);
@@ -44,11 +44,11 @@
 					$data['side2']="";
 					redirect('RekonfigJTM');
 				}
-				elseif($_SESSION['rayon'] != $_POST['rayon'])
+				elseif($_SESSION['ryn'] != $_POST['ryn'])
 				{
 					$_SESSION['log']="<div class='alert alert-danger alert-dismissable'>
 					<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					<strong>Maaf!</strong> pilihan rayon Anda tidak sama
+					<strong>Maaf!</strong> pilihan ryn Anda tidak sama
 					</div>";
 					redirect('RekonfigJTM');
 				}
@@ -60,23 +60,23 @@
 			$data['side3']="";
 			$data['side4']="";
 			$data['side2']="";
-			$this->template->display('RekonfigJTM/lokasi',$data);
+			$this->template->display('RekonfigJTM/lks',$data);
 			}
 		}
-		function saveaddlokasi(){
+		function saveaddlks(){
 			$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-			  <strong>Selamat!</strong> Data Lokasi Telah Tersimpan Pada <b>Rayon ".$this->input->post('rayon')."</b>
+			  <strong>Selamat!</strong> Data Lokasi Telah Tersimpan Pada <b>Rayon ".$this->input->post('ryn')."</b>
 			</div>";
-			$data['gmb']=$this->input->post('nogmb');
-			$data['gmb1']=$this->input->post('nogmb1');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['penyulang']=$this->input->post('penyulang');
-			$data['jml_ganggu']=$this->input->post('jml_ganggu');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['bgr_no']=$this->input->post('bgr_no');
+			$data['gbr2_no']=$this->input->post('gbr2_no');
+			$data['lks']=$this->input->post('lks');
+			$data['ex_sist']=$this->input->post('ex_sist');
+			$data['penylang']=$this->input->post('penylang');
+			$data['jlm_ganggu']=$this->input->post('jlm_ganggu');
+			$data['ryn']=$_SESSION['ryn'];
 			$this->load->model('m_rekonfigjtm');
-			$hasil=$this->m_rekonfigjtm->simpanlokasitodb($data);
+			$hasil=$this->m_rekonfigjtm->simpanlkstodb($data);
 			redirect('RekonfigJTM');
 		}
 		
@@ -155,7 +155,7 @@
 			  <strong>Maaf!</strong> Data Gagal dihapus
 				</div>";
 			}
-			redirect('RekonfigJTM/lokasi');
+			redirect('RekonfigJTM/lks');
 		}
 		
 		function addsutm()
@@ -213,7 +213,7 @@
 					$hasil=$this->m_rekonfigjtm->simpansutmtodb($data);
 					$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 					  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN SUTM Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('rayon')."</b>
+					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN SUTM Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('ryn')."</b>
 					  </div>";
 				}
 				$red="RekonfigJTM/tambahjtm/$id";
@@ -262,7 +262,7 @@
 					$hasil=$this->m_rekonfigjtm->simpanmvtictodb($data);
 					$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 					  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN MVTIC Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('rayon')."</b>
+					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN MVTIC Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('ryn')."</b>
 					  </div>";
 				}
 				$red="RekonfigJTM/tambahjtm/$id";
@@ -300,7 +300,7 @@
 					$hasil=$this->m_rekonfigjtm->simpanugctodb($data);
 					$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 					  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  <strong>Selamat!</strong> Data PEKERJAAN UGC/KABEL TANAH Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('rayon')."</b>
+					  <strong>Selamat!</strong> Data PEKERJAAN UGC/KABEL TANAH Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('ryn')."</b>
 					  </div>";
 				}
 				$red="RekonfigJTM/tambahjtm/$id";
@@ -310,8 +310,8 @@
 		function uploadgambar()
         {
         $this->form_validation->set_rules('id_lok','ID Lokasi','required');
-        $this->form_validation->set_rules('rayon','Rayon','required');
-        $rayon=$this->input->post('rayon');
+        $this->form_validation->set_rules('ryn','Rayon','required');
+        $ryn=$this->input->post('ryn');
         $id=$this->input->post('id_lok');
         if($this->form_validation->run()==true)
         {
@@ -326,7 +326,7 @@
 				}
 				else
 				{
-					$config['upload_path']   = './assets/img/lokasi/Rekonfig JTM/'.$rayon.'';
+					$config['upload_path']   = './assets/img/lks/Rekonfig JTM/'.$ryn.'';
 					$config['allowed_types'] = 'gif|jpg|png|bmp';
 	                   
 	                $this->upload->initialize($config);
@@ -342,8 +342,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['rayon']=$this->input->post('rayon');
+						$data['id_lks']=$this->input->post('id_lok');
+						$data['ryn']=$this->input->post('ryn');
 						$data['gambar']=$gambar;
 		                $this->m_rekonfigjtm->simpangambar($data);
 	                }
@@ -363,11 +363,11 @@
 		
 		public function exporttoexcel()
 		{
-			$rayon=$_SESSION['rayon'];
-			$data['rayon']=$_SESSION['rayon'];
+			$ryn=$_SESSION['ryn'];
+			$data['ryn']=$_SESSION['ryn'];
 			$this->load->model('m_rekonfigjtm');
-			$data['hasil']=$this->m_rekonfigjtm->showexviewfromdb($rayon);
-			//$data['rayon']=$rayon;
+			$data['hasil']=$this->m_rekonfigjtm->showexviewfromdb($ryn);
+			//$data['ryn']=$ryn;
         	$this->load->view('RekonfigJTM/export',$data);
 		}
 		

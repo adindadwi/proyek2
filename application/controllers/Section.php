@@ -73,7 +73,7 @@
 			$data['side1']="";
 			$data['side2']="class='active'";
 			$data['side3']="";
-        	$this->template->display('sectionalizer/view',$data);
+        	$this->template->display('Sectionalizer/view',$data);
         }
         public function addsection()
         {

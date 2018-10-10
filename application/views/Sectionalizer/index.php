@@ -3,7 +3,7 @@
      <h1>Pemasangan Keypoint/Sectionalizer </h1>
             <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-archive"></i> <?=$title?></a></li>
-              <li><a href="<?php echo base_url()?>Section">lokasi</a></li>
+              <li><a href="<?php echo base_url()?>Section">lok_sect</a></li>
             </ol>
 </section>
 
@@ -51,10 +51,10 @@
 								foreach($hasil as $listhasil):
 								echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->no_gambar."<br>".$listhasil->no_gambar2."</td>";
-									echo "<td class='text-center'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->rayon."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
+									echo "<td class='text-center'>".$listhasil->gambar_no."<br>".$listhasil->gambar_no2."</td>";
+									echo "<td class='text-center'>".$listhasil->lok_sect."</td>";
+									echo "<td class='text-center'>".$listhasil->wilayah."</td>";
+									echo "<td class='text-center'>".$listhasil->exsisting."<br>".$listhasil->penyalur."</td>";
 									
 									?>
 								<td width="175" class="text-center">
@@ -111,14 +111,14 @@
 					</thead>
 					<tbody>
 					<tr>
-						<td class="text-center"><input type="text" name="no_gambar" class="form-control1"></td>
-						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lokasi" class="form-control1"></td>
-						<td><input type="text" name="exsist" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="gambar_no" class="form-control1"></td>
+						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lok_sect" class="form-control1"></td>
+						<td><input type="text" name="exsisting" class="form-control1"></td>
 						
 					</tr>
 					<tr>
-						<td class="text-center"><input type="text" name="no_gambar2" class="form-control1"></td>
-						<td class="text-center"><input type="text" name="penyulang" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="gambar_no2" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="penyalur" class="form-control1"></td>
 					</tr>
 					</tbody>
 				</table>
