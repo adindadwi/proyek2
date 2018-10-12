@@ -37,17 +37,17 @@
                                 <div class="form-group" >
                                     <label for="user" class="col-md-3 control-label">Email/Username</label>
                                     <div class="col-md-9">
-                                        <input type="text" class="form-control1" name="user" placeholder="Email/Username">
+                                        <input type="text" class="form-control1" name="username" placeholder="Email/Username">
                                     </div>
-                                     <font color="#ef4423"><?php echo form_error('user'); ?></font>
+                                     <font color="#ef4423"><?php echo form_error('username'); ?></font>
                                 </div>
                                
                                 <div class="form-group" >
                                     <label for="pass" class="col-md-3 control-label">Kata Sandi</label>
                                     <div class="col-md-9">
-                                        <input type="password" class="form-control1" name="pass" placeholder="Kata Sandi">
+                                        <input type="password" class="form-control1" name="password" placeholder="Kata Sandi">
                                     </div>
-                                    <font color="#ef4423"><?php echo form_error('pass'); ?></font>
+                                    <font color="#ef4423"><?php echo form_error('password'); ?></font>
                                 </div>
                                 
                                 <div class="form-group" >

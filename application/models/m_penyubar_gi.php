@@ -26,7 +26,7 @@
 			$lokasi=$data['lks'];
 			$exsist=$data['ex_sist'];
 			$penyulang=$data['penylang'];
-			$jml_ganggu=$data['jml_gangguan'];
+			$jml_ganggu=$data['jlm_gangguan'];
 			$rayon=$data['ryn'];
 			$query="insert into kol_pnybar_gi values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
 			$hasil=$this->db->query($query);
@@ -154,7 +154,7 @@
 			$n1=$data['n1'];
 			$o1=$data['o1'];
 			$p1=$data['p1'];
-			$query="UPDATE rekjtm_sutm SET TM1M='".$a."',TM2M='".$b."',TM4M='".$c."',TM5M='".$e."',TM8M='".$f."',TM10M='".$i."',TM11M='".$k."',CONDUCTOR='".$l."',EST_JARAK='".$m."',GWM='".$n."',HGWM='".$o."',SPM='".$p."',TM1UB='".$a1."',TM2UB='".$b1."',TM4UB='".$c1."',TM4XUB='".$d1."',TM5UB='".$e1."',TM8UB='".$f1."',TM8XUB='".$g1."',TM8XCUB='".$h1."',TM10UB='".$i1."',TM10XUB='".$j1."',TM11UB='".$k1."',GWUB='".$n1."',HGWUB='".$o1."',SPUB='".$p1."',UTAMA='".$q."',PENYANGGA='".$r."',FERLENG_STUCK='".$s."',GROUND_DALAM='".$t."',GROUND_LUAR='".$u."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE rekjtm_sut SET TM1M='".$a."',TM2M='".$b."',TM4M='".$c."',TM5M='".$e."',TM8M='".$f."',TM10M='".$i."',TM11M='".$k."',CONDUCTOR='".$l."',EST_JARAK='".$m."',GWM='".$n."',HGWM='".$o."',SPM='".$p."',TM1UB='".$a1."',TM2UB='".$b1."',TM4UB='".$c1."',TM4XUB='".$d1."',TM5UB='".$e1."',TM8UB='".$f1."',TM8XUB='".$g1."',TM8XCUB='".$h1."',TM10UB='".$i1."',TM10XUB='".$j1."',TM11UB='".$k1."',GWUB='".$n1."',HGWUB='".$o1."',SPUB='".$p1."',UTAMA='".$q."',PENYANGGA='".$r."',FERLENG_STUCK='".$s."',GROUND_DALAM='".$t."',GROUND_LUAR='".$u."' WHERE id_lok1='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -213,7 +213,7 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="UPDATE rekjtm_mvtic SET MVTIC1M='".$a."',MVTIC2M='".$b."',MVTIC4M='".$c."',MVTIC4AM='".$d."',MVTIC5M='".$e."',MVTIC5AM='".$f."',MVTIC='".$g."',EST_JARAK1='".$h."',GWM1='".$i."',HGWM1='".$j."',SPM1='".$k."',MVTIC1UB='".$a1."',MVTIC2UB='".$b1."',MVTIC4UB='".$c1."',MVTIC4AUB='".$d1."',MVTIC5UB='".$e1."',MVTIC5AUB='".$f1."',GWUB1='".$i1."',HGWUB1='".$j1."',SPUB1='".$k1."',UTAMA1='".$l."',PENYANGGA1='".$m."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE rekjtm_ticmv SET MVTIC1M='".$a."',MVTIC2M='".$b."',MVTIC4M='".$c."',MVTIC4AM='".$d."',MVTIC5M='".$e."',MVTIC5AM='".$f."',MVTIC='".$g."',EST_JARAK1='".$h."',GWM1='".$i."',HGWM1='".$j."',SPM1='".$k."',MVTIC1UB='".$a1."',MVTIC2UB='".$b1."',MVTIC4UB='".$c1."',MVTIC4AUB='".$d1."',MVTIC5UB='".$e1."',MVTIC5AUB='".$f1."',GWUB1='".$i1."',HGWUB1='".$j1."',SPUB1='".$k1."',UTAMA1='".$l."',PENYANGGA1='".$m."' WHERE id_lok1='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -232,7 +232,7 @@
 			$c1=$data['c1'];
 			$d1=$data['d1'];
 			$e1=$data['e1'];
-			$query="insert into penyer_gi_ugc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."')";
+			$query="insert into penyabar_gi_ugc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -250,13 +250,13 @@
 			$c1=$data['c1'];
 			$d1=$data['d1'];
 			$e1=$data['e1'];
-			$query="UPDATE rekjtm_ugc set SKTM_UGC='".$a."',DITANAM='".$b."',CROSSING_JLN='".$c."',OUTDOOR='".$d."',INDOOR='".$e."',JOINT='".$f."',SKTM_UGC1='".$a1."',DITANAM1='".$b1."',CROSSING_JLN1='".$c1."',OUTDOOR1='".$d1."',INDOOR1='".$e1."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE rekjtm_ugcable set sktm_ugc1='".$a."',ditanam1='".$b."',crossing_jln1='".$c."',outdoor1='".$d."',indoor1='".$e."',jointing='".$f."',sktm_ugc2='".$a1."',ditanam2='".$b1."',crossing_jln2='".$c1."',outdoor2='".$d1."',indoor2='".$e1."' WHERE id_lokasi='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function showexviewfromdb($rayon)
 		{
-			$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi a INNER JOIN penyer_gi_mvtic b ON a.id=b.id_lok INNER JOIN penyer_gi_sutm c ON a.id=c.id_lok INNER JOIN penyer_gi_ugc d ON a.id=d.id_lok WHERE a.rayon='".ucfirst($rayon)."'")->result();
+			$hasil=$this->db->query("SELECT * FROM kol_pnybar_gi a INNER JOIN penyer_gi_mvtc b ON a.id=b.id_lok1 INNER JOIN penyer_gi_sutm c ON a.id=c.id_lok1 INNER JOIN penyabar_gi_ugc d ON a.id=d.id_lokasi WHERE a.ryn='".ucfirst($rayon)."'")->result();
 			return $hasil;
 		}
 	}

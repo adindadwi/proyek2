@@ -21,19 +21,19 @@ class M_user extends CI_Model
                 }
         }
         
-        function adminfromdb($username)
+        function adminfromdb($user)
         {
-		$query = "select * from tb_user where username='".$username."'";
+		$query = "select * from tb_user where username='".$user."'";
         	$hasil=$this->db->query($query)->result();
         	return $hasil;
 		}
 		function daftartodb($data)
         {
         	$nama=$data['nama'];
-        	$user=$data['user'];
-        	$pass=$data['pass'];
+        	$user=$data['username'];
+        	$pass=$data['password'];
 		$rayon=$data['rayon'];
-        	$foto=$data['gambar'];
+        	$foto=$data['foto'];
         	$query="insert into tb_user values('','".$nama."','".$user."','".$pass."','".$foto."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;

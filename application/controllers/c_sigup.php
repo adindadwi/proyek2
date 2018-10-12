@@ -33,12 +33,12 @@ class C_sigup extends CI_Controller
 					'rules'=>'trim|required|min_length[3]|is_unique[tb_user.nama]'
 				),
 				array(
-					'field'=>'user',
+					'field'=>'username',
 					'label'=>'Username',
 					'rules'=>'trim|required'
 				),
 				array(
-					'field'=>'pass',
+					'field'=>'password',
 					'label'=>'Password',
 					'rules'=>'trim|required'
 				),
@@ -69,10 +69,10 @@ class C_sigup extends CI_Controller
 			  				<strong><font size='4'>Selamat!</font></strong> Anda Telah Terdaftar ".$foto."
 								</div>";
 		              $this->load->model('m_user'); // load model m_user
-		              $data['gambar']=$gambar;
+		              $data['foto']=$gambar;
 		              $data['nama']=$this->input->post('nama');
-					  $data['user']=$this->input->post('user');
-					  $data['pass']=md5($this->input->post('pass'));
+					  $data['username']=$this->input->post('username');
+					  $data['password']=md5($this->input->post('password'));
 					  $data['rayon']=$this->input->post('rayon');
 		              $result = $this->m_user->daftartodb($data);
 				}
