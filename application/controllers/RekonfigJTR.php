@@ -71,12 +71,12 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Lokasi Telah Tersimpan Pada <b>Rayon ".$this->input->post('rayon')."</b>
 			</div>";
-			$data['gmb']=$this->input->post('nogmb');
-			$data['gmb1']=$this->input->post('nogmb1');
+			$data['gmb12']=$this->input->post('gmb12');
+			$data['gmb22']=$this->input->post('gmb22');
 			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['penyulang']=$this->input->post('penyulang');
-			$data['rayon']=$this->input->post('rayon');
+			$data['eksis']=$this->input->post('eksis');
+			$data['penyulang2']=$this->input->post('penyulang2');
+			$data['rayon2']=$this->input->post('rayon2');
 			$this->load->model('m_rekonfigjtr');
 			$hasil=$this->m_rekonfigjtr->simpanlokasitodb($data);
 			redirect('RekonfigJTR');
@@ -169,7 +169,7 @@
 					$hasil=$this->m_rekonfigjtr->editrejtminputtodb($data);
 					$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 					  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  <strong>Selamat!</strong> Data Berhasil Diubah Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('rayon')."</b>
+					  <strong>Selamat!</strong> Data Berhasil Diubah Di Lokasi : <b>".$this->input->post('lok')."</b>, rayon2 : <b>".$this->input->post('rayon2')."</b>
 					  </div>";
 				}
 			 else
@@ -177,7 +177,7 @@
 					$hasil=$this->m_rekonfigjtr->simpanrejtrinputtodb($data);
 					$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 					  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN SUTM Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, Rayon : <b>".$this->input->post('rayon')."</b>
+					  <strong>Selamat!</strong> Data PEKERJAAN JARINGAN SUTM Telah Tersimpan Di Lokasi : <b>".$this->input->post('lok')."</b>, rayon2 : <b>".$this->input->post('rayon2')."</b>
 					  </div>";
 				}
 				$red="RekonfigJTR/tambahjtr/$id";

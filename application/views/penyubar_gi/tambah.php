@@ -3,7 +3,7 @@
      <h1>PRK.2015 DJT.1.4</h1>
             <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-archive"></i> PEMBANGUNAN PENYULANG BARU PERSIAPAN OPERASI TRAFO GI</a></li>
-              <li><a href="<?php echo base_url()?>penyubar_gi"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>penyubar_gi"><?php foreach($hasil as $listhasil): echo $listhasil->ryn; endforeach;?></a></li>
               <li class="active">Edit</li>
             </ol>
 </section>
@@ -42,10 +42,10 @@
 								<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
-									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jumlah_ganggu."</td>";
+									echo "<td class='text-center'>".$listhasil->n_gbr1."<br>".$listhasil->n_gbr2."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->lks."</td>";
+									echo "<td class='text-center'>".$listhasil->ex_sist."<br>".$listhasil->penylang."</td>";
+									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jlm_gangguan."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='ket'></td>";
 								endforeach;
 								?>
