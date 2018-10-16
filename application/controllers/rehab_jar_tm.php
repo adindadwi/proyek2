@@ -286,7 +286,6 @@
 			                
 		}
 		
-		
 		function uploadgambar1()
         {
         $this->form_validation->set_rules('id_lok','ID Lokasi','required');
@@ -296,7 +295,7 @@
 	        	$this->load->model('m_rehab_jar_tm');
 	        	$query=$this->m_rehab_jar_tm->cekgmb2($id);
 	        	$cek=$query->row();
-	        	if($cek->count > 0)
+	        	if($cek->count>0)
 	        	{
 					$_SESSION['log']="<div class='alert alert-warning alert-dismissable'>
 									  <strong>Maaf!</strong> Gambar Lokasi Sudah Ada, Apakah anda ingin mengupdate ? &nbsp;<button type='submit' class='btn btn-sm btn-warning'>Iya</button>&nbsp;<button type='button' class='btn btn-sm btn-danger' data-dismiss='alert'>Tidak</button> 

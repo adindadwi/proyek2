@@ -10,75 +10,75 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rehab_jtr ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokrehjtr ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rehab_jtr WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokrehjtr WHERE rayon2='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
 		function showinputfromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM rehab_jtr WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM tb_rehabjtr WHERE id_lokJTR='".$id."'");
 			return $hasil;
 		}
 		function cekinput($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rehab_jtr WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_rehabjtr WHERE id_lokJTR='".$id."'");
 			return $hasil;
 		}
 
 		function addlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rehab_jtr WHERE id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_lokrehjtr WHERE id='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gambar_jtr WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbjtr WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambar_jtr WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbjtr WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		
-		function simpangambar($data)
+		function simpangambar2($data)
 		{
-			$id_lok=$data['id_lokasi'];
-			$gmb=$data['gambar'];
-			$query="insert into tb_gambar_jtr values('','".$id_lok."','".$gmb."')";
+			$id_lok=$data['lokasi_id'];
+			$gmb=$data['gambar2'];
+			$query="insert into tb_gmbjtr values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function simpanlokasitodb($data)
 		{
-			$gmb=$data['gmb'];
+			$gmb=$data['gmb12'];
 			$gmb1=$data['gmb1'];
 			$lokasi=$data['lokasi'];
 			$exsist=$data['exsist'];
 			$JUMLAH_XX=$data['JUMLAH_XX'];
-			$rayon=$data['rayon'];
-			$query="insert into lok_rehab_jtr values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$JUMLAH_XX."','".$rayon."')";
+			$rayon2=$data['rayon2'];
+			$query="insert into tb_lokrehjtr values('','".$gmb12."','".$gmb1."','".$lokasi."','".$exsist."','".$JUMLAH_XX."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 
 		/*function deletermvfromdb($id)
 		{
-			$this->db->query("DELETE FROM tb_gambar_jtr WHERE id_lokasi = '".$id."'");
+			$this->db->query("DELETE FROM tb_gmbjtr WHERE lokasi_id = '".$id."'");
 			$query="DELETE FROM lok_rmv WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}*/
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rehab_jtr WHERE id='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM tb_lokrehjtr WHERE id='".$id."'");
 			return $hasil;
 		}
 		function exporttopdf()
@@ -91,7 +91,7 @@
 		}
 		function deletelokfromdb($id)
 		{
-			$query="DELETE FROM lok_rehab_jtr WHERE id = '".$id."'";
+			$query="DELETE FROM tb_lokrehjtr WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -145,7 +145,7 @@
 			$t1=$data['t1'];
 			$u1=$data['u1'];
 			$z=$data['z'];
-			$query="insert into rehab_jtr values('','".$idlok."','','','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$kk."','".$ll."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$kk1."','".$l1."','".$ll1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$z."')";
+			$query="insert into tb_rehabjtr values('','".$idlok."','','','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$kk."','".$ll."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$kk1."','".$l1."','".$ll1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$z."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -186,7 +186,7 @@
 			$m1=$data['m1'];
 			$n1=$data['n1'];
 			$o1=$data['o1'];
-			$query="UPDATE rehab_jtr set TR1M='".$a."',TR2M='".$b."',TR3M='".$c."',TR3AM='',TR4M='".$e."',TR4AM='".$f."',TR5M='$g',TR6M='$h',TR6AM='".$i."',TR7M='',CONDUCTOR='".$k."',INSULATED='".$kk."',NONINSULATED='".$ll."',GWM='".$m."',GWNM='".$n."',HGWM='".$o."',TR1UB='".$a1."',TR2UB='".$b1."',TR3UB='".$c1."',TR3AUB='".$d1."',TR4UB='".$e1."',TR4AUB='".$f1."',TR5UB='".$g1."',TR6UB='".$h1."',TR6AUB='".$i1."',TR7UB='".$j1."',GWUB='".$m1."',GWNUB='".$n1."',HGWUB='".$o1."',HGWN='".$p."',SP='".$q."',UTAMA='".$r."',UTAMA_E='".$s."',SR_TIANG='".$t."',GROUND_LUAR='".$u."' WHERE id_lok='".$idlok."'";
+			$query="UPDATE tb_rehabjtr set TR1M='".$a."',TR2M='".$b."',TR3M='".$c."',TR3AM='',TR4M='".$e."',TR4AM='".$f."',TR5M='$g',TR6M='$h',TR6AM='".$i."',TR7M='',CONDUCTOR='".$k."',INSULATED='".$kk."',NONINSULATED='".$ll."',GWM='".$m."',GWNM='".$n."',HGWM='".$o."',TR1UB='".$a1."',TR2UB='".$b1."',TR3UB='".$c1."',TR3AUB='".$d1."',TR4UB='".$e1."',TR4AUB='".$f1."',TR5UB='".$g1."',TR6UB='".$h1."',TR6AUB='".$i1."',TR7UB='".$j1."',GWUB='".$m1."',GWNUB='".$n1."',HGWUB='".$o1."',HGWN='".$p."',SP='".$q."',UTAMA='".$r."',UTAMA_E='".$s."',SR_TIANG='".$t."',GROUND_LUAR='".$u."' WHERE id_lok='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
