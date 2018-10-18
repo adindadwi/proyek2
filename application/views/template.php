@@ -12,6 +12,8 @@
         <link href="<?php echo base_url()?>assets/dist/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url()?>assets/dist/css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="<?php echo base_url()?>assets/img/favicon.ico"/>
+        
+        <script type="text/javascript" src="<?php echo base_url()?>vendor/jquery-2.1.0-beta2.js"></script>
     </head>
     <body class="skin-black">
 	 <?php echo $_header;?>
@@ -26,7 +28,6 @@
         </div>
 
       
-        <script type="text/javascript" src="<?php echo base_url()?>vendor/jquery-2.1.0-beta2.js"></script>
         <script src="<?php echo base_url()?>assets/dist/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url()?>assets/dist/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="<?php echo base_url()?>assets/dist/js/AdminLTE/app.js" type="text/javascript"></script>

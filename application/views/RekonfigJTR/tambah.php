@@ -3,7 +3,7 @@
      <h1>PRK.2015 DJT.1.2</h1>
             <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-archive"></i> RekonfigJTR</a></li>
-              <li><a href="<?php echo base_url()?>RekonfigJTR"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>RekonfigJTR"><?php foreach($hasil as $listhasil): echo $listhasil->rayon2; endforeach;?></a></li>
               <li class="active">Edit</li>
             </ol>
 </section>
@@ -17,7 +17,7 @@
              <div class="col-xs-12">
              <div class="box">
                 <div style="background-color: #4db4f9;" class="box-header">
-                    <h3 class="box-title"><font color="#f4f2f3">Uraian & Lokasi (Rayon <?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?>)</font></h3>
+                    <h3 class="box-title"><font color="#f4f2f3">Uraian & Lokasi (Rayon <?php foreach($hasil as $listhasil): echo $listhasil->rayon2; endforeach;?>)</font></h3>
                 </div><!-- /.box-header -->
 			    <div class="box-body table-responsive">
     			 <table class="table table-bordered table-hover">
@@ -39,9 +39,9 @@
 								<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
+									echo "<td class='text-center'>".$listhasil->gmb12."<br>".$listhasil->gmb22."</td>";
 									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
+									echo "<td class='text-center'>".$listhasil->eksis."<br>".$listhasil->penyulang2."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='ket'></td>";
 								endforeach;
 								?>
@@ -57,7 +57,7 @@
 					<?php
 					foreach($hasil as $listhasil):
 					echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
-					echo "<input type='hidden' value='".$listhasil->rayon."' name='rayon'>";
+					echo "<input type='hidden' value='".$listhasil->rayon2."' name='rayon'>";
 					endforeach;
 					?>
 					<td><label>Gambar : &nbsp;&nbsp;</label></td>
@@ -188,7 +188,7 @@
 							foreach($hasil as $listhasil):
 							echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
 							echo "<input type='hidden' value='".$listhasil->lokasi."' name='lok'>";
-							echo "<input type='hidden' value='".$listhasil->rayon."' name='rayon'>";
+							echo "<input type='hidden' value='".$listhasil->rayon2."' name='rayon'>";
 							endforeach;
 							if($cekin=="0")
 							{

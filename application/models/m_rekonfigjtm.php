@@ -28,7 +28,9 @@
 			$penylang=$data['penylang'];
 			$jml_ganggu=$data['jml_ganggu'];
 			$ryn=$data['ryn'];
-			$query="insert into kol_jtmrek(no_gmb1,no_gmb2,lks,ex_sist,penylang,jml_ganggu,ryn,mtsu,ctivm,cgu) values('".$bgr_no."','".$gbr2_no."','".$lks."','".$ex_sist."','".$penylang."','".$jml_ganggu."','".$ryn."','0','0','0')";
+			
+			$query="insert into kol_jtmrek(bgr_no,gbr2_no,lks,ex_sist,penylang,jlm_ganggu,ryn,mtsu,ctivm,cgu) values('".$bgr_no."','".$gbr2_no."','".$lks."','".$ex_sist."','".$penylang."','".$jml_ganggu."','".$ryn."','0','0','0')";
+		
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -44,29 +46,29 @@
 			$this->db->query("DELETE FROM rekjtm_sut WHERE id_lok1 = '".$id."'");
 			$this->db->query("DELETE FROM rekjtm_ticmv WHERE id_lok1 = '".$id."'");
 			$this->db->query("DELETE FROM rekjtm_ugcable WHERE id_lokasi = '".$id."'");
-			$this->db->query("DELETE FROM td_gmbrejtm WHERE lokasi_id = '".$id."'");
+			$this->db->query("DELETE FROM tb_gmbrejtm WHERE lokasi_id = '".$id."'");
 			$query="DELETE FROM kol_jtmrek WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function ceksut($id)
+		function ceksutm($id)
 		{
 			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_sut WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
-		function cekctivm($id)
+		function cekmvtic($id)
 		{
 			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_ticmv WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
-		function cekcgu($id)
+		function cekugc($id)
 		{
 			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM rekjtm_ugcable WHERE id_lokasi='".$id."'");
 			return $hasil;
 		}
 		
-		function simpanmtsutodb($data)
+		function simpansutmtodb($data)
 		{
 			$id_lok1=$data['id'];
 			$a=$data['a'];
@@ -251,13 +253,13 @@
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM td_gmbrejtm WHERE lokasi_id='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbrejtm WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM td_gmbrejtm WHERE lokasi_id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbrejtm WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		
@@ -266,24 +268,24 @@
 			$lokasi_id=$data['lokasi_id'];
 			$gambar2=$data['gambar2'];
 			$rayon2=$data['rayon2'];
-			$query="insert into td_gmbrejtm values('','".$lokasi_id."','".$gambar2."','".$rayon2."')";
+			$query="insert into tb_gmbrejtm values('','".$lokasi_id."','".$gambar2."','".$rayon2."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
-		function showmtsufromdb($id)
+		function showsutmfromdb($id)
 		{
 			$hasil=$this->db->query("SELECT * FROM rekjtm_sut WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
 		
-		function showctivmfromdb($id)
+		function showmvticfromdb($id)
 		{
 			$hasil=$this->db->query("SELECT * FROM rekjtm_ticmv WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
 		
-		function showcgufromdb($id)
+		function showugcfromdb($id)
 		{
 			$hasil=$this->db->query("SELECT * FROM rekjtm_ugcable WHERE id_lokasi='".$id."'");
 			return $hasil;

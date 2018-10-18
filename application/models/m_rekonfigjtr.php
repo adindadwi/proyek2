@@ -14,7 +14,7 @@
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM tb_lokrekjtr WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokrekjtr WHERE rayon2='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
@@ -26,9 +26,10 @@
 			$lokasi=$data['lokasi'];
 			$eksis=$data['eksis'];
 			$penyulang2=$data['penyulang2'];
-			$jml_ganggu=$data['jml_ganggu'];
 			$rayon2=$data['rayon2'];
-			$query="insert into tb_lokrekjtr(gbr12,gbr22,lokasi,eksis,penyulang2,rayon2,status) values('".$gmb12."','".$gmb22."','".$lokasi."','".$eksis."','".$penyulang2."','".$rayon2."','0')";
+			
+			$query="insert into tb_lokrekjtr(gmb12,gmb22,lokasi,eksis,penyulang2,rayon2,status) values('".$gmb12."','".$gmb22."','".$lokasi."','".$eksis."','".$penyulang2."','".$rayon2."','0')";
+		
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -41,8 +42,8 @@
 		
 		function deleteadbfromdb($id)
 		{
-			$this->db->query("DELETE FROM tb_inputrekjtrWHERE id_lok = '".$id."'");
-			$this->db->query("DELETE FROM tb_gmbrejtr WHERE lokasi_id = '".$id."'");
+			// $this->db->query("DELETE FROM tb_lokrekjtr WHERE id = '".$id."'");
+			$this->db->query("DELETE FROM tb_gmbrejtr WHERE id = '".$id."'");
 			$query="DELETE FROM tb_lokrekjtr WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
@@ -50,7 +51,7 @@
 		
 		function cekinput($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_inputrekjtrWHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_inputrekjtr WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		
@@ -138,19 +139,19 @@
 		
 		function showinputfromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_inputrekjtrWHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM tb_inputrekjtr WHERE id_lok='".$id."'");
 			return $hasil;
 		}
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbrejtr WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbrejtr WHERE id='".$id."'");
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gmbrejtr WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbrejtr WHERE id='".$id."'")->result();
 			return $hasil;
 		}
 		

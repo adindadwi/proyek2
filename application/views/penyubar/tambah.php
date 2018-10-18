@@ -42,10 +42,10 @@
 								<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
-									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jumlah_ganggu."</td>";
+									echo "<td class='text-center'>".$listhasil->n_gbr1."<br>".$listhasil->n_gbr2."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->lks."</td>";
+									echo "<td class='text-center'>".$listhasil->ex_sist."<br>".$listhasil->ex_sist."</td>";
+									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jlm_gangguan."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='ket'></td>";
 								endforeach;
 								?>
@@ -174,7 +174,7 @@
 						<?php
 						foreach($hasil as $listhasil):
 						echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
-						echo "<input type='hidden' value='".$listhasil->lokasi."' name='lok'>";
+						echo "<input type='hidden' value='".$listhasil->lks."' name='lok'>";
 						endforeach;
 						?>
 							<tr id='addr0'>

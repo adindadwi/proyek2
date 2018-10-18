@@ -10,11 +10,11 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 ORDER BY id_lokmm2 ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 ORDER BY id_2lomm ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id_lokmm2 ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE ryn='".$_SESSION['rayon']."' ORDER BY id_2lomm ASC")->result();
 			}
 			return $hasil;
 		}
@@ -39,29 +39,29 @@
 		
 		function addlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE id_lokmm2='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE id_2lomm='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gambar_jtm1 WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM 	 WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		function gambarlinefromdb2($id)
 		{
-			$hasil1=$this->db->query("SELECT * FROM tb_gambar_jtm2 WHERE id_lokasi='".$id."'")->result();
+			$hasil1=$this->db->query("SELECT * FROM tb_gmbjtm2 WHERE lokasi_id='".$id."'")->result();
 			return $hasil1;
 		}
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambar_jtm1 WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM 	 WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		function cekgmb2($id)
 		{
-			$hasil1=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambar_jtm2 WHERE id_lokasi='".$id."'");
+			$hasil1=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbjtm2 WHERE lokasi_id='".$id."'");
 			return $hasil1;
 		}
 		function cekmvline($id)
@@ -77,17 +77,17 @@
 		
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
+			$id_lok=$data['lokasi_id'];
 			$gmb=$data['gambar'];
-			$query="insert into tb_gambar_jtm1 values('','".$id_lok."','".$gmb."')";
+			$query="insert into 	 values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function simpangambar1($data)
 		{
-			$id_lok=$data['id_lokasi'];
+			$id_lok=$data['lokasi_id'];
 			$gmb=$data['gambar'];
-			$query="insert into tb_gambar_jtm2 values('','".$id_lok."','".$gmb."')";
+			$query="insert into tb_gmbjtm2 values('','".$id_lok."','".$gmb."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -115,19 +115,19 @@
 		}
 		function deletermvfromdb($id)
 		{
-			$this->db->query("DELETE FROM tb_gambar_jtm1 WHERE id_lokasi = '".$id."'");
+			$this->db->query("DELETE FROM 	 WHERE lokasi_id = '".$id."'");
 			$query="DELETE FROM lok_rmv WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE id_lokmm2='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM lok_rehab_jar_tm1 WHERE id_2lomm='".$id."'");
 			return $hasil;
 		}
 		function showlokaddlinefromdb2($id)
 		{
-			$hasil1=$this->db->query("SELECT * FROM lok_rehab_jar_tm2 WHERE id_lokmm3='".$id."'");
+			$hasil1=$this->db->query("SELECT * FROM lok_rehab_jar_tm2 WHERE id_2lomm='".$id."'");
 			return $hasil1;
 		}
 		function exporttopdf()
@@ -140,7 +140,7 @@
 		}
 		function deletelokfromdb($id)
 		{
-			$query="DELETE FROM lok_rehab_jar_tm1 WHERE id_lokmm2 = '".$id."'";
+			$query="DELETE FROM lok_rehab_jar_tm1 WHERE id_2lomm = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -153,7 +153,7 @@
 		
 		function simpanmvlinetodb($data)
 		{
-			$id_lokmm2=$data['id_lokmm2'];
+			$id_2lomm=$data['id_2lomm'];
 			//$pasangan=$data['pasangan'];
 			//$pasangan1=$data['pasangan1'];
 			$a=$data['a'];
@@ -206,7 +206,7 @@
 			$w1=$data['w1'];
 			$x1=$data['x1'];
 			$y1=$data['y1'];
-			$query="insert into rehab_jtm_aaacs values('','".$id_lokmm2."','','','".$a."','".$b."','".$c."' ,'".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$v."','".$w."','".$x."','".$y."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$l1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$v1."','".$w1."','".$x1."','".$y1."')";
+			$query="insert into rehab_jtm_aaacs values('','".$id_2lomm."','','','".$a."','".$b."','".$c."' ,'".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$v."','".$w."','".$x."','".$y."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$l1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$v1."','".$w1."','".$x1."','".$y1."')";
 			$hasil=$this->db->query($query);
 			
 			return $hasil;
@@ -264,7 +264,7 @@
 			$w1=$data['w1'];
 			$x1=$data['x1'];
 			$y1=$data['y1'];
-			$query="insert into rehab_jtm_mvtic values('','".$id_lokmm2."','','','".$a."','".$b."','".$c."' ,'".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$v."','".$w."','".$x."','".$y."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$l1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$v1."','".$w1."','".$x1."','".$y1."')";
+			$query="insert into rehab_jtm_mvtic values('','".$id_2lomm."','','','".$a."','".$b."','".$c."' ,'".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$l."','".$m."','".$n."','".$o."','".$p."','".$q."','".$r."','".$s."','".$t."','".$u."','".$v."','".$w."','".$x."','".$y."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$g1."','".$h1."','".$i1."','".$j1."','".$k1."','".$l1."','".$m1."','".$n1."','".$o1."','".$p1."','".$q1."','".$r1."','".$s1."','".$t1."','".$u1."','".$v1."','".$w1."','".$x1."','".$y1."')";
 			$hasil=$this->db->query($query);
 			
 			return $hasil;

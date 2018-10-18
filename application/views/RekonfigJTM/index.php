@@ -69,11 +69,11 @@
 								}
 								echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->rayon."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
-									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jumlah_ganggu."</td>";
+									echo "<td class='text-center'>".$listhasil->bgr_no."<br>".$listhasil->gbr2_no."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->lks."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->ryn."</td>";
+									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penylang."</td>";
+									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jlm_ganggu."</td>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$status."</td>";
 									?>
 								<td width="175" class="text-center">
@@ -143,14 +143,14 @@
 					<tbody>
 					<tr>
 						<input type="hidden" value="<?php echo $_SESSION['rayon'] ?>" name="rayon">
-						<td class="text-center"><input type="text" name="nogmb" class="form-control1"></td>
-						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lokasi" class="form-control1"></td>
-						<td><input type="text" name="exsist" class="form-control1"></td>
-						<td style="vertical-align: middle" class="text-center" rowspan="2"><input type="text" name="jml_ganggu" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="bgr_no" class="form-control1"></td>
+						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lks" class="form-control1"></td>
+						<td><input type="text" name="ex_sist" class="form-control1"></td>
+						<td style="vertical-align: middle" class="text-center" rowspan="2"><input type="text" name="jlm_ganggu" class="form-control1"></td>
 					</tr>
 					<tr>
-						<td class="text-center"><input type="text" name="nogmb1" class="form-control1"></td>
-						<td class="text-center"><input type="text" name="penyulang" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="gbr2_no" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="penylang" class="form-control1"></td>
 					</tr>
 					</tbody>
 				</table>

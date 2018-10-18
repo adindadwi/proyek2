@@ -88,10 +88,10 @@
 									echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
 									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->rayon."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";
-									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jumlah_ganggu."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->lks."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->ryn."</td>";
+									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penylang."</td>";
+									echo "<td style='vertical-align: middle;' class='text-center'>".$listhasil->jlm_gangguan."</td>";
 									echo "<td>&nbsp;</td>";
 									?>
 								<td width="175" class="text-center">

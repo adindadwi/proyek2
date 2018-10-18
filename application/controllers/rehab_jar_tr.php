@@ -22,6 +22,7 @@
 			$data['side1']="";
 			$data['side2']="";
 			$data['side3']="";
+			$data['cekin']=0;
         	$this->template->display('rehab_jtr/lokasi',$data);
         }
 		function lokasi(){ 

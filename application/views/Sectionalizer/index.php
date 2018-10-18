@@ -51,7 +51,7 @@
 								foreach($hasil as $listhasil):
 								echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->gambar_no."<br>".$listhasil->gambar_no2."</td>";
+									echo "<td class='text-center'>".$listhasil->gambar_no."<br>".$listhasil->gambar_no2	."</td>";
 									echo "<td class='text-center'>".$listhasil->lok_sect."</td>";
 									echo "<td class='text-center'>".$listhasil->wilayah."</td>";
 									echo "<td class='text-center'>".$listhasil->exsisting."<br>".$listhasil->penyalur."</td>";
@@ -59,12 +59,12 @@
 									?>
 								<td width="175" class="text-center">
 								<?php if($_SESSION['rayon']!="Semua") {?>
-								<a class="btn btn-xs btn-danger" title="Hapus Member"  href="<?php echo base_url()?>section/deletesect/<?php echo $listhasil->id?>" onclick="return confirm('Anda Yakin Akan Menghapus DATA ?')"><i class="glyphicon glyphicon-trash"></i>&nbsp;Hapus</a>
-								<?php echo "<a class='btn btn-xs btn-success' title='Ubah Data Member' href='".base_url()."section/addsection/".$listhasil->id."'><i class='glyphicon glyphicon-edit'></i>&nbsp;Detail</a>";
+								<a class="btn btn-xs btn-danger" title="Hapus Member"  href="<?php echo base_url()?>section/deletesect/<?php echo $listhasil->id_?>" onclick="return confirm('Anda Yakin Akan Menghapus DATA ?')"><i class="glyphicon glyphicon-trash"></i>&nbsp;Hapus</a>
+								<?php echo "<a class='btn btn-xs btn-success' title='Ubah Data Member' href='".base_url()."section/addsection/".$listhasil->id_."'><i class='glyphicon glyphicon-edit'></i>&nbsp;Detail</a>";
 								}else{ ?>
-									<input type="checkbox" name="sutm<?=$listhasil->id?>">	
-									<input type="checkbox" name="mvtic<?=$listhasil->id?>">	
-									<input type="checkbox" name="ugc<?=$listhasil->id?>">	
+									<input type="checkbox" name="sutm<?=$listhasil->id_?>">	
+									<input type="checkbox" name="mvtic<?=$listhasil->id_?>">	
+									<input type="checkbox" name="ugc<?=$listhasil->id_?>">	
 									<?php }
 								echo "</td></tr>";
 								$i++;

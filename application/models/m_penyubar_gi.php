@@ -29,6 +29,7 @@
 			$jml_ganggu=$data['jlm_gangguan'];
 			$rayon=$data['ryn'];
 			$query="insert into kol_pnybar_gi values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
+	
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}

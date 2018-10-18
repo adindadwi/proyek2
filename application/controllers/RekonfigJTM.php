@@ -63,7 +63,7 @@
 			$this->template->display('RekonfigJTM/lks',$data);
 			}
 		}
-		function saveaddlks(){
+		function saveaddlokasi(){
 			$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Lokasi Telah Tersimpan Pada <b>Rayon ".$this->input->post('ryn')."</b>

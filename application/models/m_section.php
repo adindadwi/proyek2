@@ -21,7 +21,7 @@
 		
 		function showsectfromdb()
 		{
-			$hasil=$this->db->query("SELECT * FROM sectionalizer ORDER BY id_ ASC")->result();
+			$hasil=$this->db->query("SELECT * FROM lok_sectionalizer ORDER BY id_ ASC")->result();
 			return $hasil;
 		}
 		

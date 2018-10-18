@@ -45,9 +45,9 @@
 							<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gambar."<br>".$listhasil->no_gambar2."</td>";
-									echo "<td class='text-center'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penyulang."</td>";									
+									echo "<td class='text-center'>".$listhasil->gambar_no."<br>".$listhasil->gambar_no2."</td>";
+									echo "<td class='text-center'>".$listhasil->lok_sect."</td>";
+									echo "<td class='text-center'>".$listhasil->exsisting."<br>".$listhasil->penyalur."</td>";									
 									echo "<td class='text-center'><input type='text' class='form-control1' name='ket'></td>";
 								echo "</tr>";
 								endforeach;
@@ -62,7 +62,7 @@
 				<tr>
 					<?php
 					foreach($hasil as $listhasil):
-					echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
+					echo "<input type='hidden' value='".$listhasil->id_."' name='id_lok'>";
 					endforeach;
 					?>
 					<td><label>Gambar : &nbsp;&nbsp;</label></td>
@@ -172,7 +172,7 @@
 						<tbody>
 								<?php
 								foreach($hasil as $listhasil):
-								echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
+								echo "<input type='hidden' value='".$listhasil->id_."' name='id_lok'>";
 								endforeach;
 								?>
 								<td><input type="text"  maxlength="3" name="section_ke" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>

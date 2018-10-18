@@ -98,12 +98,12 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
-			$data['no_gambar2']=$this->input->post('no_gambar2');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['penyulang']=$this->input->post('penyulang');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['gambar_no']=$this->input->post('gambar_no');
+			$data['gambar_no2']=$this->input->post('gambar_no2');
+			$data['lok_sect']=$this->input->post('lok_sect');
+			$data['exsisting']=$this->input->post('exsisting');
+			$data['penyalur']=$this->input->post('penyalur');
+			// $data['wilayah']=$_SESSION['wilayah'];
 			$this->load->model('m_section');
 			$hasil=$this->m_section->simpanlokasitodb($data);
 			redirect('Section');

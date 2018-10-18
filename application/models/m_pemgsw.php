@@ -10,11 +10,12 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gsw ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM pemasangan_gswire ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gsw WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				// $hasil=$this->db->query("SELECT * FROM pemasangan_gswire WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM pemasangan_gswire ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
@@ -27,7 +28,7 @@
 		
 		function addgswfromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gsw WHERE id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM pemasangan_gswire WHERE id='".$id."'")->result();
 			return $hasil;
 		}
 		
@@ -43,7 +44,7 @@
 			$no_gambar2=$data['no_gambar2'];
 			$lokasi=$data['lokasi'];
 			$rayon=$data['rayon'];
-			$query="insert into lok_pemasangan_gsw values('','".$no_gambar."','".$no_gambar2."','".$lokasi."','".$rayon."')";
+			$query="insert into pemasangan_gswire values('','".$no_gambar."','".$no_gambar2."','".$lokasi."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -67,7 +68,7 @@
 		
 		function deletegswfromdb($id)
 		{
-			$query="DELETE FROM lok_pemasangan_gsw WHERE id = '".$id."'";
+			$query="DELETE FROM pemasangan_gswire WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}

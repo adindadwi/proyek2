@@ -76,8 +76,8 @@
 			$data['lks']=$this->input->post('lks');
 			$data['ex_sist']=$this->input->post('ex_sist');
 			$data['penylang']=$this->input->post('penylang');
-			$data['jml_gangguan']=$this->input->post('jml_gangguan');
-			$data['ryn']=$_SESSION['ryn'];
+			// $data['jml_gangguan']=$this->input->post('jml_gangguan');
+			$data['ryn']=$_SESSION['rayon'];
 			$this->load->model('m_penyubar');
 			$hasil=$this->m_penyubar->simpanlokasitodb($data);
 			redirect('penyubar');

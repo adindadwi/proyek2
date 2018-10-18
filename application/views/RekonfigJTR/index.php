@@ -59,10 +59,10 @@
 								}
 								echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
+									echo "<td class='text-center'>".$listhasil->gmb12."<br>".$listhasil->gmb22."</td>";
 									echo "<td style='vertical-align: middle;'>".$listhasil->lokasi."</td>";
-									echo "<td style='vertical-align: middle;'>".$listhasil->rayon."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."<BR>".$listhasil->penyulang."</td>";
+									echo "<td style='vertical-align: middle;'>".$listhasil->rayon2."</td>";
+									echo "<td class='text-center'>".$listhasil->eksis."<BR>".$listhasil->penyulang2."</td>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$status."</td>";
 									?>
 								<td width="175" class="text-center">
@@ -127,14 +127,14 @@
 					</thead>
 					<tbody>
 					<tr>
-						<input type="hidden" value="<?php echo $_SESSION['rayon'] ?>" name="rayon">
-						<td class="text-center"><input type="text" name="nogmb" class="form-control1"></td>
+						<input type="hidden" value="<?php echo $_SESSION['rayon'] ?>" name="rayon2">
+						<td class="text-center"><input type="text" name="gmb12" class="form-control1"></td>
 						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lokasi" class="form-control1"></td>
-						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="exsist" class="form-control1"></td>
-						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="penyulang" class="form-control1"></td>
+						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="eksis" class="form-control1"></td>
+						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="penyulang2" class="form-control1"></td>
 					</tr>
 					<tr>
-						<td class="text-center"><input type="text" name="nogmb1" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="gmb22" class="form-control1"></td>
 					</tr>
 					</tbody>
 				</table>

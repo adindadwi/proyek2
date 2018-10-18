@@ -13,11 +13,13 @@
         	}
 		function index(){
 			$this->load->model('m_comment');
+			$this->load->model('m_rehab_jar_tm');
 			$data['content']=$this->m_comment->posts(5,0);
 			$data['title']="rehab_jar_tm";
 			$data['side1']="class='active'";
 			$data['side2']="";
 			$data['side3']="";
+			$data['hasil'] = $this->m_rehab_jar_tm->showlokfromdb();
         	$this->template->display('rehab_jar_tm/lokasi',$data);
 		}
 		function lokasi(){ 
