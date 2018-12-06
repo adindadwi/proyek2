@@ -64,10 +64,10 @@ class C_sigup extends CI_Controller
 	                    $gambar=$this->upload->file_name;
 	                    $foto="";
 	                }
-	                 $_SESSION['log']="<div class='alert alert-success alert-dismissable'>
-			  				<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-			  				<strong><font size='4'>Selamat!</font></strong> Anda Telah Terdaftar ".$foto."
-								</div>";
+	                //  $_SESSION['log']="<div class='alert alert-success alert-dismissable'>
+			  		// 		<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+			  		// 		<strong><font size='4'>Selamat!</font></strong> Anda Telah Terdaftar ".$foto."
+					// 			</div>";
 		              $this->load->model('m_user'); // load model m_user
 		              $data['foto']=$gambar;
 		              $data['nama']=$this->input->post('nama');
@@ -76,7 +76,7 @@ class C_sigup extends CI_Controller
 					  $data['rayon']=$this->input->post('rayon');
 		              $result = $this->m_user->daftartodb($data);
 				}
-				redirect('c_sigup');
+				redirect('c_login');
 				
 		}
         

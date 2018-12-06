@@ -78,11 +78,11 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['jumlah_x']=$this->input->post('jumlah_x');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['no_gbr']=$this->input->post('no_gbr');
+			$data['lks']=$this->input->post('lks');
+			$data['ex_sist']=$this->input->post('ex_sist');
+			$data['jlm_x']=$this->input->post('jlm_x');
+			$data['ryn']=$_SESSION['rayon'];
 			$this->load->model('m_21UpRTM');
 			$hasil=$this->m_21UpRTM->simpanlokasitodb($data);
 			redirect('UpRTM');
@@ -93,11 +93,11 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['jumlah_x']=$this->input->post('jumlah_x');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['no_gbr']=$this->input->post('no_gbr');
+			$data['lks']=$this->input->post('lks');
+			$data['ex_sist']=$this->input->post('ex_sist');
+			$data['jlm_x']=$this->input->post('jlm_x');
+			$data['ryn']=$_SESSION['rayon'];
 			$this->load->model('m_21UpRTM');
 			$hasil=$this->m_21UpRTM->simpanlokasitodb1($data);
 			redirect('UpRTM');
@@ -153,7 +153,7 @@
 			$data['content']=$this->m_comment->posts(5,0);
 			$data['hasil']=$hasil->result();
 			$listhasil=$hasil->row();
-			$data['gambar']=$this->m_21UpRTM->gambarlinefromdb($id);
+			$data['gambar2']=$this->m_21UpRTM->gambarlinefromdb($id);
 			$query=$this->m_21UpRTM->cekgmb($id);
 	        $cek=$query->row();
 	        $data['cekgmb']=$cek->count;
@@ -172,7 +172,7 @@
 			$data['content']=$this->m_comment->posts(5,0);
 			$data['hasil']=$hasil->result();
 			$listhasil=$hasil->row();
-			$data['gambar']=$this->m_21UpRTM->gambarlinefromdb1($id);
+			$data['gambar2']=$this->m_21UpRTM->gambarlinefromdb1($id);
 			$query=$this->m_21UpRTM->cekgmb1($id);
 	        $cek=$query->row();
 	        $data['cekgmb']=$cek->count;
@@ -184,7 +184,7 @@
 		}
 		public function exporttoexcel()
 		{
-			$data['data_lok'] = $this->db->query("select NO_AWAL,NO_REVISI,LOKASI,EXSIST,NO_GAMBAR,KOORDINAT_S,KOORDINAT_E from lok_rmv ORDER BY id ASC");
+			$data['data_lok'] = $this->db->query("select NO_AWAL,NO_REVISI,LOKASI,EXSIST,no_gbr,KOORDINAT_S,KOORDINAT_E from lok_rmv ORDER BY id ASC");
         	$this->load->view('UpRTM/export',$data);
 		}
 		function addmvline()
@@ -264,7 +264,7 @@
 		}
 		function addmvline1()
 		{
-			$data['id_lokmm3']=$this->input->post('id_lokmm3');
+			$data['id_kolmm2']=$this->input->post('id_kolmm2');
 			$data['a']=$this->input->post('a');
 			$data['b']=$this->input->post('b');
 			$data['c']=$this->input->post('c');
@@ -359,19 +359,19 @@
 	                   
 	                $this->upload->initialize($config);
 	                if(!$this->upload->do_upload('gambar_lok')){
-	                    $gambar="";
+	                    $gambar2="";
 						$_SESSION['log']="<div class='alert alert-danger alert-dismissable'>
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Maaf!</strong> Tidak Dapat Menyimpan Gambar
 									  </div>";
 	                }else{
-	                    $gambar=$this->upload->file_name;
+	                    $gambar2=$this->upload->file_name;
 						$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar2;
 		                $this->m_21UpRTM->simpangambar($data);
 	                }
 				}
@@ -409,19 +409,19 @@
 	                   
 	                $this->upload->initialize($config);
 	                if(!$this->upload->do_upload('gambar_lok')){
-	                    $gambar="";
+	                    $gambar2="";
 						$_SESSION['log']="<div class='alert alert-danger alert-dismissable'>
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Maaf!</strong> Tidak Dapat Menyimpan Gambar
 									  </div>";
 	                }else{
-	                    $gambar=$this->upload->file_name;
+	                    $gambar2=$this->upload->file_name;
 						$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar2;
 		                $this->m_21UpRTM->simpangambar1($data);
 	                }
 				}

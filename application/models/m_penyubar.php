@@ -26,7 +26,7 @@
 			$lokasi=$data['lks'];
 			$exsist=$data['ex_sist'];
 			$penyulang=$data['penylang'];
-			// $jml_ganggu=$data['jlm_gangguan'];
+			$jml_ganggu=$data['jlm_gangguan'];
 			 $rayon=$data['ryn'];
 			$query="insert into kol_pnybar values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
 			$hasil=$this->db->query($query);
@@ -58,8 +58,8 @@
 		function simpangambar($data)
 		{
 			$id_lok=$data['lokasi_id'];
-			$gmb=$data['gambar2'];
-			$query="insert into tb_gmbpenyubar values('','".$id_lok."','".$gmb."')";
+			$gambar=$data['gambar2'];
+			$query="insert into tb_gmbpenyubar values('','".$id_lok."','".$gambar."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -70,7 +70,7 @@
 		}
 		function cekmvtic($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_mvtic WHERE id_lok1='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_mvtc WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
 		function cekugc($id)

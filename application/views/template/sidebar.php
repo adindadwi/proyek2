@@ -38,7 +38,7 @@
                              <li><a href="<?php echo base_url()?>penyubar_gi"><i class="fa fa-caret-right"></i> Penyulang Baru-GI</a></li>
                              <li><a href="<?php echo base_url()?>rehab_jar_tm"><i class="fa fa-caret-right"></i> Rehab-Jar TM</a></li>
                              <li><a href="<?php echo base_url()?>rehab_jar_tr"><i class="fa fa-caret-right"></i> Rehab-Jar TR</a></li>
-                             <li><a href="<?php echo base_url()?>PemGSW"><i class="fa fa-caret-right"></i> Pemasangan GSW</a></li>
+                             <!-- <li><a href="<?php echo base_url()?>PemGSW"><i class="fa fa-caret-right"></i> Pemasangan GSW</a></li> -->
                              <li><a href="<?php echo base_url()?>Pengmattua"><i class="fa fa-caret-right"></i> Pengganti Material-tua</a></li>
                              <li><a href="<?php echo base_url()?>Section"><i class="fa fa-caret-right"></i> Sectionaliser</a></li>
                                 
@@ -71,7 +71,7 @@
 								echo"<p align='left'>";
 								echo "Name : ".$row['nama']."";
 								echo "<br \>";
-								echo "Rayon : ".$row['rayon']."";
+								echo "Rayon : ".$row['rayon2']."";
 								echo "<br \>";
 								echo "said : <i>".$row['isi']."</i>";
 								echo "<br \>";

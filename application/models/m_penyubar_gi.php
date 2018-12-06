@@ -30,6 +30,9 @@
 			$rayon=$data['ryn'];
 			$query="insert into kol_pnybar_gi values('','".$gmb."','".$gmb1."','".$lokasi."','".$exsist."','".$penyulang."','".$jml_ganggu."','".$rayon."')";
 	
+
+			// $query="insert into kol_pnybar_gi values('','".$n_gbr1."','".$n_gbr2."','".$lks."','".$ex_sist."','".$penylang."','".$jlm_gangguan."','".$ryn."')";
+
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -66,17 +69,17 @@
 		}
 		function ceksutm($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_sutm WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_sutm WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
 		function cekmvtic($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_mvtic WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_mvtc WHERE id_lok1='".$id."'");
 			return $hasil;
 		}
 		function cekugc($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyer_gi_ugc WHERE id_lok='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM penyabar_gi_ugc WHERE id_lokasi='".$id."'");
 			return $hasil;
 		}
 		function simpansutmtodb($data)
@@ -155,7 +158,7 @@
 			$n1=$data['n1'];
 			$o1=$data['o1'];
 			$p1=$data['p1'];
-			$query="UPDATE rekjtm_sut SET TM1M='".$a."',TM2M='".$b."',TM4M='".$c."',TM5M='".$e."',TM8M='".$f."',TM10M='".$i."',TM11M='".$k."',CONDUCTOR='".$l."',EST_JARAK='".$m."',GWM='".$n."',HGWM='".$o."',SPM='".$p."',TM1UB='".$a1."',TM2UB='".$b1."',TM4UB='".$c1."',TM4XUB='".$d1."',TM5UB='".$e1."',TM8UB='".$f1."',TM8XUB='".$g1."',TM8XCUB='".$h1."',TM10UB='".$i1."',TM10XUB='".$j1."',TM11UB='".$k1."',GWUB='".$n1."',HGWUB='".$o1."',SPUB='".$p1."',UTAMA='".$q."',PENYANGGA='".$r."',FERLENG_STUCK='".$s."',GROUND_DALAM='".$t."',GROUND_LUAR='".$u."' WHERE id_lok1='".$idlok."'";
+			$query="UPDATE rekjtm_sut SET MT1M='".$a."',MT2M='".$b."',MT4M='".$c."',MT5M='".$e."',MT8M='".$f."',MT10M='".$i."',MT11M='".$k."',CONDUC='".$l."',JRA_EST='".$m."',MWG='".$n."',HGWM='".$o."',MPS='".$p."',MT1UB='".$a1."',MT2UB='".$b1."',MT4UB='".$c1."',MT4XUB='".$d1."',MT5UB='".$e1."',MT8UB='".$f1."',MT8XUB='".$g1."',MT8XCUB='".$h1."',MT10UB='".$i1."',MT10XUB='".$j1."',MT11UB='".$k1."',UBGW='".$n1."',UBWGH='".$o1."',BUPS='".$p1."',UTAM1='".$q."',PEYANG='".$r."',FERLE_STRUCK='".$s."',GROUN_DLM='".$t."',GROUN_LAR='".$u."' WHERE id_lok1='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -185,7 +188,7 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="insert into penyer_gi_mvtic values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
+			$query="insert into penyer_gi_mvtc values('','".$idlok."','".$a."','".$b."','".$c."','".$d."','".$e."','".$f."','".$g."','".$h."','".$i."','".$j."','".$k."','".$a1."','".$b1."','".$c1."','".$d1."','".$e1."','".$f1."','".$i1."','".$j1."','".$k1."','".$l."','".$m."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -214,7 +217,7 @@
 			$i1=$data['i1'];
 			$j1=$data['j1'];
 			$k1=$data['k1'];
-			$query="UPDATE rekjtm_ticmv SET MVTIC1M='".$a."',MVTIC2M='".$b."',MVTIC4M='".$c."',MVTIC4AM='".$d."',MVTIC5M='".$e."',MVTIC5AM='".$f."',MVTIC='".$g."',EST_JARAK1='".$h."',GWM1='".$i."',HGWM1='".$j."',SPM1='".$k."',MVTIC1UB='".$a1."',MVTIC2UB='".$b1."',MVTIC4UB='".$c1."',MVTIC4AUB='".$d1."',MVTIC5UB='".$e1."',MVTIC5AUB='".$f1."',GWUB1='".$i1."',HGWUB1='".$j1."',SPUB1='".$k1."',UTAMA1='".$l."',PENYANGGA1='".$m."' WHERE id_lok1='".$idlok."'";
+			$query="UPDATE rekjtm_ticmv SET CITVM1M='".$a."',CITVM2M='".$b."',CITVM4M='".$c."',CITVM4MA='".$d."',CITVM5M='".$e."',CITVM5MA='".$f."',CITVM='".$g."',EST_JRK1='".$h."',MWG1='".$i."',MWGH1='".$j."',MPS1='".$k."',CITVM1UB='".$a1."',CITVM2UB='".$b1."',CITVM4UB='".$c1."',CITVM4AUB='".$d1."',CITVM5UB='".$e1."',CITVM5AUB='".$f1."',BUWG1='".$i1."',UBWGH='".$j1."',UBPS1='".$k1."',UTAM1='".$l."',PEYANG1='".$m."' WHERE id_lok1='".$idlok."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}

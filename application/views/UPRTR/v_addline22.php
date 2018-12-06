@@ -44,10 +44,10 @@
 							<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center' rowspan='2'>".$listhasil->no_gambar."</td>";
+									echo "<td class='text-center' rowspan='2'>".$listhasil->gmb12."</td>";
 									echo "<td rowspan='2' class='text-center'>".$listhasil->lokasi."</td>";
-									echo "<td rowspan='2' class='text-center'>".$listhasil->exsist."</td>";
-									echo "<td class='text-center'>".$listhasil->jumlah_X."</td>";
+									echo "<td rowspan='2' class='text-center'>".$listhasil->eksis."</td>";
+									echo "<td class='text-center'>".$listhasil->jumX."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='ket'></td>";
 								echo "</tr>";
 								endforeach;
@@ -61,7 +61,7 @@
 				<tr>
 					<?php
 					foreach($hasil as $list):
-					echo "<input type='hidden' value='".$list->id_lokrtr."' name='id_lok'>";
+					echo "<input type='hidden' value='".$list->lokrtr_id."' name='id_lok'>";
 					endforeach;
 					?>
 					<td><label>Gambar : &nbsp&nbsp</label></td>
@@ -199,7 +199,7 @@
 						<tbody>
 						<?php
 						foreach($hasil as $listhasil):
-						echo "<input type='hidden' value='".$listhasil->id_lokrtr."' name='id_lok'>";
+						echo "<input type='hidden' value='".$listhasil->lokrtr_id."' name='id_lok'>";
 						endforeach;
 						?>
 							<tr id='addr0'>

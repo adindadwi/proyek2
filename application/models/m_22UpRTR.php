@@ -10,11 +10,11 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_uprtr ORDER BY id_lokrtr ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokuprtr ORDER BY lokrtr_id ASC")->result();  
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_uprtr WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id_lokrtr ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokuprtr WHERE rayon='".$_SESSION['rayon']."' ORDER BY lokrtr_id ASC")->result();
 			}
 			return $hasil;
 		}
@@ -27,117 +27,118 @@
 		
 		function addlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_uprtr WHERE id_lokrtr='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_lokuprtr WHERE lokrtr_id='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gambarrtr WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbrtr WHERE lokasi_id='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gambarrtr WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbrtr WHERE lokasi_id='".$id."'");
 			return $hasil;
 		}
 		
 		function cekmvline($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM uprtr WHERE id_rtr='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM up_rtr WHERE id_rtr='".$id."'");
 			return $hasil;
 		}
 		function simpanmvlinetodb($data)
 		{
-			$id_lokrtr=$data['id_lokrtr'];
-			$tr1=$data['a'];
-			$tr2=$data['b'];
-			$tr3=$data['c'];
-			$tr3a=$data['d'];
-			$tr4=$data['e'];
-			$tr4a=$data['f'];
-			$tr5=$data['g'];
-			$tr6=$data['h'];
-			$tr6a=$data['i'];
-			$tr7=$data['j'];
-			$conductor=$data['k'];
-			$ins=$data['l'];
-			$non_ins=$data['m'];
-			$gw=$data['n'];
-			$gwn=$data['o'];
-			$hgw=$data['p'];
-			$hgwn=$data['q'];
-			$sp=$data['r'];
-			$utama=$data['s'];
-			$non_utama=$data['t'];
-			$sr_utama=$data['u'];
-			$ground_luar=$data['v'];
-			$keterangan=$data['w'];
-			$tr12=$data['a1'];
-			$tr22=$data['b1'];
-			$tr32=$data['c1'];
-			$tr3a2=$data['d1'];
-			$tr42=$data['e1'];
-			$tr4a2=$data['f1'];
-			$tr52=$data['g1'];
-			$tr62=$data['h1'];
-			$tr6a2=$data['i1'];
-			$tr72=$data['j1'];
-			$conductor2=$data['k1'];
-			$ins2=$data['l1'];
-			$non_ins2=$data['m1'];
-			$gw2=$data['n1'];
-			$gwn2=$data['o1'];
-			$hgw2=$data['p1'];
-			$hgwn2=$data['q1'];
-			$sp2=$data['r1'];
-			$utama2=$data['s1'];
-			$non_utama2=$data['t1'];
-			$sr_utama2=$data['u1'];
-			$ground_luar2=$data['v1'];			
+			$lokrtr_id=$data['lokrtr_id'];
+			
+			$RT1=$data['a'];
+			$RT2=$data['b'];
+			$RT3=$data['c'];
+			$RT3A=$data['d'];
+			$RT4=$data['e'];
+			$RT4A=$data['f'];
+			$RT5=$data['g'];
+			$RT6=$data['h'];
+			$RT6A=$data['i'];
+			$RT7=$data['j'];
+			$CONDUCT=$data['k'];
+			$SNI=$data['l'];
+			$INS_NON=$data['m'];
+			$WG=$data['n'];
+			$NWG=$data['o'];
+			$WGH=$data['p'];
+			$NWGH=$data['q'];
+			$PS=$data['r'];
+			$UTAM=$data['s'];
+			$UTAM_NON=$data['t'];
+			$UTAM_SR=$data['u'];
+			$LUAR_GROU=$data['v'];
+			$KET=$data['w'];
+			$RT12=$data['a1'];
+			$RT22=$data['b1'];
+			$RT32=$data['c1'];
+			$RT3A2=$data['d1'];
+			$RT42=$data['e1'];
+			$RT4A2=$data['f1'];
+			$RT52=$data['g1'];
+			$RT62=$data['h1'];
+			$RT6A2=$data['i1'];
+			$RT72=$data['j1'];
+			$CONDUCT2=$data['k1'];
+			$SNI2=$data['l1'];
+			$SNI2_NON=$data['m1'];
+			$WG2=$data['n1'];
+			$NWN2=$data['o1'];
+			$WGH2=$data['p1'];
+			$NGWN2=$data['q1'];
+			$PS2=$data['r1'];
+			$UTAM2=$data['s1'];
+			$UTAM2_NON=$data['t1'];
+			$UTAM2_SR=$data['u1'];
+			$GROU_LUAR2=$data['v1'];			
 		
-			$query="insert into uprtr values('','".$id_lokrtr."','','','".$tr1."','".$tr2."','".$tr3."','".$tr3a."','".$tr4."','".$tr4a."','".$tr5."','".$tr6."','".$tr6a."','".$tr7."','".$conductor."','".$ins."','".$non_ins."','".$gw."','".$gwn."','".$hgw."','".$hgwn."','".$sp."','".$utama."','".$non_utama."','".$sr_utama."','".$ground_luar."','".$keterangan."','".$tr12."','".$tr22."','".$tr32."','".$tr3a2."','".$tr42."','".$tr4a2."','".$tr52."','".$tr62."','".$tr6a2."','".$tr72."','".$conductor2."','".$ins2."','".$non_ins2."','".$gw2."','".$gwn2."','".$hgw2."','".$hgwn2."','".$sp2."','".$utama2."','".$non_utama2."','".$sr_utama2."','".$ground_luar2."')";
+			$query="insert into up_rtr values('','".$lokrtr_id."','','','".$RT1."','".$RT2."','".$RT3."','".$RT3A."','".$RT4."','".$RT4A."','".$RT5."','".$RT6."','".$RT6a."','".$RT7."','".$CONDUCT."','".$SNI."','".$INS_NON."','".$WG."','".$NWG."','".$WGH."','".$NWGH."','".$PS."','".$UTAM."','".$UTAM_NON."','".$UTAM_SR."','".$LUAR_GROU."','".$KET."','".$RT12."','".$RT22."','".$RT32."','".$RT3A2."','".$RT42."','".$RT4A2."','".$RT52."','".$RT62."','".$RT6A2."','".$RT72."','".$CONDUCT2."','".$SNI2."','".$SNI2_NON."','".$WG2."','".$NWG2."','".$WGH2."','".$NGWN2."','".$PS2."','".$UTAM2."','".$UTAM2_NON."','".$UTAM2_SR."','".$GROU_LUAR2."')";
 			$hasil=$this->db->query($query);
 			
 			return $hasil;
 		}
 		function simpangambar($data)
 		{
-			$id_lok=$data['id_lokasi'];
-			$gmb=$data['gambar'];
-			$query="insert into tb_gambarrtr values('','".$id_lok."','".$gmb."')";
+			$lokasi_id=$data['lokasi_id'];
+			$gambar2=$data['gambar2'];
+			$query="insert into tb_gmbrtr values('','".$lokasi_id."','".$gambar2."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function simpanlokasitodb($data)
-		{
-			$no_gambar=$data['no_gambar'];
+		 {
+			$gmb12=$data['gmb12'];
 			$lokasi=$data['lokasi'];
-			$exsist=$data['exsist'];
-			$jumlah_x=$data['jumlah_x'];
+			$eksis=$data['eksis'];
+			$jumX=$data['jumX'];
 			$rayon=$data['rayon'];
-			$query="insert into LOK_UPRTR values('','','".$no_gambar."','".$lokasi."','".$exsist."','".$jumlah_x."','".$rayon."')";
+			$query="insert into tb_lokuprtr values('','','".$gmb12."','".$lokasi."','".$eksis."','".$jumX."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function deletelokfromdb($id)
 		{
-			$query="DELETE FROM lok_uprtr WHERE id_lokrtr = '".$id."'";
+			$query="DELETE FROM tb_lokuprtr WHERE lokrtr_id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		function showlokaddlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_uprtr WHERE id_lokrtr='".$id."'");
+			$hasil=$this->db->query("SELECT * FROM tb_lokuprtr WHERE lokrtr_id='".$id."'");
 			return $hasil;
 		}
 		
 
 		function exporttopdf()
 		{
-			$query="select NO_AWAL,NO_REVISI,LOKASI,EXSIST,NO_GAMBAR,KOORDINAT_S,KOORDINAT_E from lok_rmv ORDER BY id ASC";
+			$query="select NO_AWAL,NO_REVISI,LOKASI,eksis,gmb12,KOORDINAT_S,KOORDINAT_E from lok_rmv ORDER BY id ASC";
 			$getData = $this->db->query($query);
 			if($getData->num_rows() > 0)
 			return $getData->result_array();

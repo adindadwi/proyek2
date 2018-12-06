@@ -2,7 +2,7 @@
   <h1>Input <small>Line</small></h1>
       <ol class="breadcrumb">
          <li><a href="#"><i class="fa fa-archive"></i> UPRTM</a></li>
-              <li><a href="<?php echo base_url()?>UpRTM"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>UpRTM"><?php foreach($hasil as $listhasil): echo $listhasil->ryn; endforeach;?></a></li>
               <li class="active">Edit</li>
       </ol>
 </section>
@@ -44,10 +44,10 @@
 							<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gambar."</td>";
-									echo "<td class='text-center'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."</td>";
-									echo "<td class='text-center'>".$listhasil->jumlah_X."</td>";
+									echo "<td class='text-center'>".$listhasil->no_gbr."</td>";
+									echo "<td class='text-center'>".$listhasil->lks."</td>";
+									echo "<td class='text-center'>".$listhasil->ex_sist."</td>";
+									echo "<td class='text-center'>".$listhasil->jlm_x."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='z'></td>";
 								echo "</tr>";
 								endforeach;
@@ -61,7 +61,7 @@
 				<tr>
 					<?php
 					foreach($hasil as $listhasil):
-					echo "<input type='hidden' value='".$listhasil->id_lokmm3."' name='id_lok'>";
+					echo "<input type='hidden' value='".$listhasil->id_mm3lok."' name='id_lok'>";
 					endforeach;
 					?>
 					<td><label>Gambar : &nbsp&nbsp</label></td>
@@ -200,11 +200,11 @@
 						<tbody>
 						<?php
 						foreach($hasil as $listhasil):
-						echo "<input type='hidden' value='".$listhasil->id_lokmm3."' name='id_lokmm3'>";
+						echo "<input type='hidden' value='".$listhasil->id_mm3lok."' name='id_mm3lok'>";
 						endforeach;
 						?>
 							<tr id='addr0'>
-								<td class="text-center" name="pasangan">M</td>
+								<td class="text-center" name="pasang1">M</td>
 								<td><input type="text"  maxlength="3" name="a" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
 								<td><input type="text"  maxlength="3" name="b" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
 								<td><input type="text"  maxlength="3" name="c" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
@@ -233,7 +233,7 @@
 
 							</tr>
 							<tr id='addr1'>
-								<td class="text-center" name="pasangan1">UB</td>
+								<td class="text-center" name="pasang2">UB</td>
 								<td><input type='text'  maxlength='3' name='a1' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' onFocus='startCalc();' onBlur='stopCalc();'/></td>
 								<td><input type='text'  maxlength='3' name='b1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='c1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>

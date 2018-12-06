@@ -76,7 +76,7 @@
 			$data['lks']=$this->input->post('lks');
 			$data['ex_sist']=$this->input->post('ex_sist');
 			$data['penylang']=$this->input->post('penylang');
-			// $data['jml_gangguan']=$this->input->post('jml_gangguan');
+			$data['jlm_gangguan']=$this->input->post('jlm_gangguan');
 			$data['ryn']=$_SESSION['rayon'];
 			$this->load->model('m_penyubar');
 			$hasil=$this->m_penyubar->simpanlokasitodb($data);
@@ -182,8 +182,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar;
 		                $this->m_penyubar->simpangambar($data);
 	                }
 				}
@@ -264,8 +264,8 @@
 		
 		function addmvtic()
 		{
-			$id=$this->input->post('id_lok');
-			$data['id']=$this->input->post('id_lok');
+			$id=$this->input->post('id_lok1');
+			$data['id']=$this->input->post('id_lok1');
 			$data['a']=$this->input->post('a');
 			$data['b']=$this->input->post('b');
 			$data['c']=$this->input->post('c');

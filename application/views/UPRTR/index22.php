@@ -82,16 +82,16 @@
 								foreach($hasil as $listhasil):
 								echo "<tr>";
 									echo "<td hidden='yes' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->no_gambar."</td>";
+									echo "<td class='text-center'>".$listhasil->gmb12."</td>";
 									echo "<td class='text-center'>".$listhasil->lokasi."</td>";
 									echo "<td class='text-center'>".$listhasil->rayon."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."</td>";
-									echo "<td class='text-center'>".$listhasil->jumlah_X."</td>";
+									echo "<td class='text-center'>".$listhasil->eksis."</td>";
+									echo "<td class='text-center'>".$listhasil->jumX."</td>";
 									?>
 								<td width="175" class="text-center">
 								<?php if($_SESSION['rayon']!="Semua") {?>
-								<a class="btn btn-xs btn-danger" title="Hapus Data"  href="<?php echo base_url()?>UpRTR/deletelok/<?php echo $listhasil->id_lokrtr?>" onclick="return confirm('Anda Yakin Akan Menghapus DATA ?')"><i class="glyphicon glyphicon-trash"></i>&nbsp;Hapus</a>
-								<?php echo "<a class='btn btn-xs btn-success' title='Ubah Data' href='".base_url()."UpRTR/addline/".$listhasil->id_lokrtr."'><i class='glyphicon glyphicon-edit'></i>&nbsp;Edit</a>";
+								<a class="btn btn-xs btn-danger" title="Hapus Data"  href="<?php echo base_url()?>UpRTR/deletelok/<?php echo $listhasil->lokrtr_id?>" onclick="return confirm('Anda Yakin Akan Menghapus DATA ?')"><i class="glyphicon glyphicon-trash"></i>&nbsp;Hapus</a>
+								<?php echo "<a class='btn btn-xs btn-success' title='Ubah Data' href='".base_url()."UpRTR/addline/".$listhasil->lokrtr_id."'><i class='glyphicon glyphicon-edit'></i>&nbsp;Edit</a>";
 								}else{ ?>
 									<input type="checkbox" name="sutm<?=$listhasil->id?>">	
 									<input type="checkbox" name="mvtic<?=$listhasil->id?>">	
@@ -153,10 +153,10 @@
 					</thead>
 					<tbody>
 					<tr>
-						<td style="vertical-align: middle;" rowspan="2" class="text-center"><input type="text" name="no_gambar" class="form-control1" placeholder="No.Gambar..."/></td>
+						<td style="vertical-align: middle;" rowspan="2" class="text-center"><input type="text" name="gmb12" class="form-control1" placeholder="No.Gambar..."/></td>
 						<td style="vertical-align: middle;" rowspan="2" class="text-center"><input type="text" name="lokasi" class="form-control1" placeholder="Lokasi..."/></td>
-						<td style="vertical-align: middle;" rowspan="2"><input type="text" name="exsist" class="form-control1" placeholder="Exsist..."/></td>
-						<td class="text-center"><input type="text" name="jumlah_x" class="form-control1" placeholder="Jumlah x Gangguan..."/></td>
+						<td style="vertical-align: middle;" rowspan="2"><input type="text" name="eksis" class="form-control1" placeholder="Exsist..."/></td>
+						<td class="text-center"><input type="text" name="jumX" class="form-control1" placeholder="Jumlah x Gangguan..."/></td>
 						
 					</tr>
 					</tbody>

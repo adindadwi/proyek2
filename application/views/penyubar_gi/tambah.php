@@ -3,7 +3,7 @@
      <h1>PRK.2015 DJT.1.4</h1>
             <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-archive"></i> PEMBANGUNAN PENYULANG BARU PERSIAPAN OPERASI TRAFO GI</a></li>
-              <li><a href="<?php echo base_url()?>penyubar_gi"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>penyubar_gi"><?php  echo $listhasil->ryn;?></a></li>
               <li class="active">Edit</li>
             </ol>
 </section>
@@ -443,11 +443,11 @@
 					  else
 						 {
 							foreach($gambar as $listhasil1):
-						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/".$listhasil1->GAMBAR."'/>";
+						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/".$listhasil1->gambar2."'/>";
 							endforeach;
 						}
 						?>                               
 			      </div>
 			    </div><!-- /.modal-content -->
 			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
+			</div>  /.modal

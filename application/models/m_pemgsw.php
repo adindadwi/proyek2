@@ -10,31 +10,31 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM pemasangan_gswire ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gswire ORDER BY id_ ASC")->result();
 			}
 			else
 			{
-				// $hasil=$this->db->query("SELECT * FROM pemasangan_gswire WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
-				$hasil=$this->db->query("SELECT * FROM pemasangan_gswire ORDER BY id ASC")->result();
+				// $hasil=$this->db->query("SELECT * FROM lok_pemasangan_gswire WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id_ ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gswire ORDER BY id_ ASC")->result();
 			}
 			return $hasil;
 		}
 		
 		function showgswfromdb()
 		{
-			$hasil=$this->db->query("SELECT * FROM v_rlv ORDER BY id ASC")->result();
+			$hasil=$this->db->query("SELECT * FROM v_rlv ORDER BY id_ ASC")->result();
 			return $hasil;
 		}
 		
 		function addgswfromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM pemasangan_gswire WHERE id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM lok_pemasangan_gswire WHERE id_='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function cekgswline($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM pemasangan_gsw WHERE id_pemgsw='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM pemasangan_gsw WHERE id__pemgsw='".$id."'");
 			return $hasil;
 		}
 		
@@ -44,7 +44,7 @@
 			$no_gambar2=$data['no_gambar2'];
 			$lokasi=$data['lokasi'];
 			$rayon=$data['rayon'];
-			$query="insert into pemasangan_gswire values('','".$no_gambar."','".$no_gambar2."','".$lokasi."','".$rayon."')";
+			$query="insert into lok_pemasangan_gswire values('','".$no_gambar."','".$no_gambar2."','".$lokasi."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -68,20 +68,20 @@
 		
 		function deletegswfromdb($id)
 		{
-			$query="DELETE FROM pemasangan_gswire WHERE id = '".$id."'";
+			$query="DELETE FROM lok_pemasangan_gswire WHERE id_ = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
 		
 		function gambarlinefromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM tb_gmbgsw WHERE id_lokasi='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_gmbgsw WHERE id__lokasi='".$id."'")->result();
 			return $hasil;
 		}
 		
 		function cekgmb($id)
 		{
-			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbgsw WHERE id_lokasi='".$id."'");
+			$hasil=$this->db->query("SELECT COUNT(*) AS count FROM tb_gmbgsw WHERE id__lokasi='".$id."'");
 			return $hasil;
 		}
 		

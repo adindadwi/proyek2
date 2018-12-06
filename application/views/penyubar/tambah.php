@@ -3,7 +3,7 @@
      <h1>PRK.2015 DJT.1.3</h1>
             <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-archive"></i> Penyulang Baru</a></li>
-              <li><a href="<?php echo base_url()?>penyubar"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>penyubar"><?php foreach($hasil as $listhasil): echo $listhasil->ryn; endforeach;?></a></li>
               <li class="active">Edit</li>
             </ol>
 </section>
@@ -304,7 +304,7 @@
 			       			<?php
 							foreach($hasil as $listhasil):
 							echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
-							echo "<input type='hidden' value='".$listhasil->lokasi."' name='lok'>";
+							echo "<input type='hidden' value='".$listhasil->lks."' name='lok'>";
 							endforeach;
 							?>
 							<tr id='addr0'>
@@ -330,7 +330,7 @@
 								<td><input type='text'  maxlength='3' name='c1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='d1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='e1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
-								<td><input type='text'  maxlength='3' name='f1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
+									<td><input type='text'  maxlength='3' name='f1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='i1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='j1' onFocus='startCalc();' onBlur='stopCalc();'  onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md'/></td>
 								<td><input type='text'  maxlength='3' name='k1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
@@ -396,7 +396,7 @@
 			        		<?php
 							foreach($hasil as $listhasil):
 							echo "<input type='hidden' value='".$listhasil->id."' name='id_lok'>";
-							echo "<input type='hidden' value='".$listhasil->lokasi."' name='lok'>";
+							echo "<input type='hidden' value='".$listhasil->lks."' name='lok'>";
 							endforeach;
 							?>
 			        			<tr id='addrw0'>
@@ -450,7 +450,7 @@
 					  else
 						 {
 							foreach($gambar as $listhasil1):
-						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/Penyubar/".$listhasil1->gambar."'/>";
+						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/Penyubar/".$listhasil1->gambar2."'/>";
 							endforeach;
 						}
 						?>                               

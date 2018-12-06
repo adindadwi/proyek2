@@ -78,10 +78,10 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
+			$data['gmb12']=$this->input->post('gmb12');
 			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['jumlah_x']=$this->input->post('jumlah_x');
+			$data['eksis']=$this->input->post('eksis');
+			$data['jumX']=$this->input->post('jumX');
 			$data['rayon']=$_SESSION['rayon'];
 			$this->load->model('m_22UpRTR');
 			$hasil=$this->m_22UpRTR->simpanlokasitodb($data);
@@ -129,7 +129,7 @@
 		}
 		function addmvline()
 		{
-			$data['id_lokrtr']=$this->input->post('id_lokrtr');
+			$data['lokrtr_id']=$this->input->post('lokrtr_id');
 			$data['a']=$this->input->post('a');
 			$data['b']=$this->input->post('b');
 			$data['c']=$this->input->post('c');
@@ -177,7 +177,7 @@
 			$data['v1']=$this->input->post('v1');
 		  	
 		  	$this->load->model('m_22UpRTR');
-		    $query=$this->m_22UpRTR->cekmvline($this->input->post('id_lokrtr'));
+		    $query=$this->m_22UpRTR->cekmvline($this->input->post('lokrtr_id'));
 		    $cek=$query->row();
 		     if($cek->count > 0)
 		        {
@@ -199,8 +199,8 @@
 		}
 		function uploadgambar()
         {
-        $this->form_validation->set_rules('id_lok','ID Lokasi','required');
-        $id=$this->input->post('id_lok');
+        $this->form_validation->set_rules('lokasi_id','ID Lokasi','required');
+        $id=$this->input->post('lokasi_id');
         if($this->form_validation->run()==true)
         {
 	        	$this->load->model('m_22UpRTR');
@@ -230,8 +230,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('lokasi_id');
+						$data['gambar2']=$gambar;
 		                $this->m_22UpRTR->simpangambar($data);
 	                }
 				}
@@ -243,7 +243,7 @@
 									  <strong>Maaf!</strong> Validasi Error
 									  </div>";
 			}
-			$red="UpRTM/addline/$id";
+			$red="UpRTR/addline/$id";
 			redirect($red);
 			                
 		}

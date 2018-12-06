@@ -20,8 +20,10 @@
 			$data['side2']="";
 			$data['side3']="";
 			$data['hasil'] = $this->m_rehab_jar_tm->showlokfromdb();
-        	$this->template->display('rehab_jar_tm/lokasi',$data);
+			$data['hasil1'] = $this->m_rehab_jar_tm->showlokfromdb1();
+        	$this->template->display('rehab_jar_tm/index',$data);
 		}
+
 		function lokasi(){ 
 			$this->load->model('m_rehab_jar_tm');
 			
@@ -77,27 +79,31 @@
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['jumlah_x']=$this->input->post('jumlah_x');
-			$data['rayon']=$_SESSION['rayon'];
-			
+			$data['id_2lomm']=$this->input->post('id_2lomm');
+			$data['gmr_no']=$this->input->post('gmr_no');
+			$data['lks']=$this->input->post('lks');
+			$data['ex_sist']=$this->input->post('ex_sist');
+			$data['jlm_x']=$this->input->post('jlm_x');
+			$data['ryn']=$_SESSION['rayon'];
+						
 			$this->load->model('m_rehab_jar_tm');
 			$hasil=$this->m_rehab_jar_tm->simpanlokasitodb($data);
 			redirect('rehab_jar_tm');
 		}
+
 		function saveaddlokasi1()
 		{
 			$_SESSION['log']="<div class='alert alert-success alert-dismissable'>
 			  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 			  <strong>Selamat!</strong> Data Telah Tersimpan
 			</div>";
-			$data['no_gambar']=$this->input->post('no_gambar');
-			$data['lokasi']=$this->input->post('lokasi');
-			$data['exsist']=$this->input->post('exsist');
-			$data['jumlah_x']=$this->input->post('jumlah_x');
-			$data['rayon']=$_SESSION['rayon'];
+			$data['id_3lomm']=$this->input->post('id_3lomm');
+			$data['gmr_no']=$this->input->post('gmr_no');
+			$data['lks']=$this->input->post('lks');
+			$data['ex_sist']=$this->input->post('ex_sist');
+			$data['jlm_x']=$this->input->post('jlm_x');
+			$data['ryn']=$_SESSION['ryn'];
+
 			$this->load->model('m_rehab_jar_tm');
 			$hasil=$this->m_rehab_jar_tm->simpanlokasitodb1($data);
 			redirect('rehab_jar_tm');
@@ -144,24 +150,25 @@
 			}
 			redirect('rehab_jar_tm');
 		}
+
 		public function addline()
         {
         	$id=$this->uri->segment(3);
         	$this->load->model('m_rehab_jar_tm');
 			$hasil=$this->m_rehab_jar_tm->showlokaddlinefromdb($id);
 			$data['hasil']=$hasil->result();
-			$listhasil=$hasil->row();
-			
-			$data['gambar']=$this->m_rehab_jar_tm->gambarlinefromdb($id);
+			$data['gambar2']=$this->m_rehab_jar_tm->gambarlinefromdb($id);
 			$query=$this->m_rehab_jar_tm->cekgmb($id);
 	        $cek=$query->row();
-	        $data['cekgmb']=$cek->count;
 			$this->load->model('m_comment');
 			$data['content']=$this->m_comment->posts(5,0);
+			$data['cekgmb']=$cek->count;
+			// $data['input']=$this->m_rehab_jar_tm->showlokaddlinefromdb($id)->result();
         	$data['title']="Input Line";
         	$data['side1']="";
         	$data['side2']="";
 			$data['side3']="";
+			$listhasil=$hasil->row();			
 			$this->template->display('rehab_jar_tm/v_addline1',$data);
 		}
 		
@@ -173,12 +180,12 @@
 			$data['hasil1']=$hasil1->result();
 			$listhasil1=$hasil1->row();
 			
-			$data['gambar']=$this->m_rehab_jar_tm->gambarlinefromdb2($id);
+			$data['gambar2']=$this->m_rehab_jar_tm->gambarlinefromdb2($id);
 			$query=$this->m_rehab_jar_tm->cekgmb2($id);
-	        $cek=$query->row();
+			$cek=$query->row();
+			$data['cekgmb']=$cek->count;
 			$this->load->model('m_comment');
 			$data['content']=$this->m_comment->posts(5,0);
-	        $data['cekgmb']=$cek->count;
         	$data['title']="Input Line";
         	$data['side1']="";
         	$data['side2']="";
@@ -236,7 +243,8 @@
         	{
               		session_destroy(); //session destroy
              		redirect("c_login");//buka halaman login/v_form
-         	}
+			 }
+			 
 		function uploadgambar()
         {
         $this->form_validation->set_rules('id_lok','ID Lokasi','required');
@@ -270,8 +278,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar;
 		                $this->m_rehab_jar_tm->simpangambar($data);
 	                }
 				}
@@ -288,7 +296,6 @@
 			                
 		}
 		
-		
 		function uploadgambar1()
         {
         $this->form_validation->set_rules('id_lok','ID Lokasi','required');
@@ -298,7 +305,7 @@
 	        	$this->load->model('m_rehab_jar_tm');
 	        	$query=$this->m_rehab_jar_tm->cekgmb2($id);
 	        	$cek=$query->row();
-	        	if($cek->count > 0)
+	        	if($cek->count>0)
 	        	{
 					$_SESSION['log']="<div class='alert alert-warning alert-dismissable'>
 									  <strong>Maaf!</strong> Gambar Lokasi Sudah Ada, Apakah anda ingin mengupdate ? &nbsp;<button type='submit' class='btn btn-sm btn-warning'>Iya</button>&nbsp;<button type='button' class='btn btn-sm btn-danger' data-dismiss='alert'>Tidak</button> 
@@ -322,8 +329,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar;
 		                $this->m_rehab_jar_tm->simpangambar1($data);
 	                }
 				}
@@ -342,7 +349,7 @@
 		
 		function addmvline()
 		{
-			$data['id_lokmm2']=$this->input->post('id_lokmm2');
+			$data['id_2lomm']=$this->input->post('id_2lomm');
 			$data['a']=$this->input->post('a');
 			$data['b']=$this->input->post('b');
 			$data['c']=$this->input->post('c');
@@ -395,7 +402,7 @@
 			$data['y1']=$this->input->post('y1');
 		  	
 		  	$this->load->model('m_rehab_jar_tm');
-		    $query=$this->m_rehab_jar_tm->cekmvline($this->input->post('id_loksrr'));
+		    $query=$this->m_rehab_jar_tm->cekmvline($this->input->post('loksrr_id'));
 		    $cek=$query->row();
 		     if($cek->count > 0)
 		        {
@@ -417,7 +424,7 @@
 		}
 		function addmvline1()
 		{
-			$data['id_lokmm3']=$this->input->post('id_lokmm3');
+			$data['id_3lomm']=$this->input->post('id_3lomm');
 			$data['a']=$this->input->post('a');
 			$data['b']=$this->input->post('b');
 			$data['c']=$this->input->post('c');
@@ -470,7 +477,7 @@
 			$data['y1']=$this->input->post('y1');
 		  	
 		  	$this->load->model('m_rehab_jar_tm');
-		    $query=$this->m_rehab_jar_tm->cekmvline1($this->input->post('id_loksrr'));
+		    $query=$this->m_rehab_jar_tm->cekmvline1($this->input->post('loksrr_id'));
 		    $cek=$query->row();
 		     if($cek->count > 0)
 		        {

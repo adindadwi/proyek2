@@ -10,11 +10,11 @@
 		{
 			if($_SESSION['rayon']=="Semua")
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_peng_materialtua ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokpengmattua ORDER BY id ASC")->result();
 			}
 			else
 			{
-				$hasil=$this->db->query("SELECT * FROM lok_peng_materialtua WHERE RAYON='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
+				$hasil=$this->db->query("SELECT * FROM tb_lokpengmattua WHERE RAYON2='".$_SESSION['rayon']."' ORDER BY id ASC")->result();
 			}
 			return $hasil;
 		}
@@ -27,7 +27,7 @@
 		
 		function addmattuafromdb($id)
 		{
-			$hasil=$this->db->query("SELECT * FROM lok_peng_materialtua WHERE id='".$id."'")->result();
+			$hasil=$this->db->query("SELECT * FROM tb_lokpengmattua WHERE id='".$id."'")->result();
 			return $hasil;
 		}
 		
@@ -64,7 +64,7 @@
 			$exsist=$data['exsist'];
 			$penyulang=$data['penyulang'];
 			$rayon=$data['rayon'];
-			$query="insert into lok_peng_materialtua values('','".$lokasi."','".$exsist."','".$penyulang."','".$rayon."')";
+			$query="insert into tb_lokpengmattua values('','".$lokasi."','".$exsist."','".$penyulang."','".$rayon."')";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}
@@ -94,7 +94,7 @@
 		
 		function deletemattuafromdb($id)
 		{
-			$query="DELETE FROM lok_peng_materialtua WHERE id = '".$id."'";
+			$query="DELETE FROM tb_lokpengmattua WHERE id = '".$id."'";
 			$hasil=$this->db->query($query);
 			return $hasil;
 		}

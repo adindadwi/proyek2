@@ -179,8 +179,8 @@
 									  <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 									  <strong>Selamat!</strong> Data Gambar Telah Tersimpan
 									  </div>";
-						$data['id_lokasi']=$this->input->post('id_lok');
-						$data['gambar']=$gambar;
+						$data['lokasi_id']=$this->input->post('id_lok');
+						$data['gambar2']=$gambar;
 		                $this->m_penyubar_gi->simpangambar($data);
 	                }
 				}

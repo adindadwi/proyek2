@@ -28,7 +28,7 @@
 				$this->load->model('m_comment');
 				$data=	array(
 							'nama'=>$_SESSION['nama'],
-							'rayon'=>$_SESSION['rayon'],
+							'rayon2'=>$_SESSION['rayon'],
 							'isi'=>$_POST['isi'],
 							'time'=>gmdate("Y-m-d H:i:s", time()+60*60*7)
 						);

@@ -2,7 +2,7 @@
   <h1>Input <small>Line</small></h1>
       <ol class="breadcrumb">
          <li><a href="#"><i class="fa fa-archive"></i> UPRTM</a></li>
-              <li><a href="<?php echo base_url()?>UpRTM"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>UpRTM"><?php foreach($hasil as $listhasil): echo $listhasil->ryn; endforeach;?></a></li>
               <li class="active">Edit</li>
       </ol>
 </section>
@@ -44,10 +44,10 @@
 							<?php
 								foreach($hasil as $listhasil):
 								echo "<tr>";
-									echo "<td class='text-center'>".$listhasil->no_gambar."</td>";
-									echo "<td class='text-center'>".$listhasil->lokasi."</td>";
-									echo "<td class='text-center'>".$listhasil->exsist."</td>";
-									echo "<td class='text-center'>".$listhasil->jumlah_X."</td>";
+									echo "<td class='text-center'>".$listhasil->no_gbr."</td>";
+									echo "<td class='text-center'>".$listhasil->lks."</td>";
+									echo "<td class='text-center'>".$listhasil->ex_sist."</td>";
+									echo "<td class='text-center'>".$listhasil->jlm_x."</td>";
 									echo "<td class='text-center'><input type='text' class='form-control1' name='z'></td>";
 								echo "</tr>";
 								endforeach;
@@ -61,7 +61,7 @@
 				<tr>
 					<?php
 					foreach($hasil as $listhasil):
-					echo "<input type='hidden' value='".$listhasil->id_lokmm2."' name='id_lok'>";
+					echo "<input type='hidden' value='".$listhasil->id_mm2lok."' name='id_lok'>";
 					endforeach;
 					?>
 					<td><label>Gambar : &nbsp&nbsp</label></td>
@@ -87,7 +87,7 @@
 			    <form action="<?php echo base_url()?>UpRTM/addmvline" method="POST" name="mvline">
 			    <div style="border: 0px solid 00000; color: black; font-family: arial; height: auto; overflow: auto; padding: 4px; text-align: left; width: auto;">
 			    
-					<table class="table table-bordered" width="100%" id="tab_logic">
+				<table class="table table-bordered" width="100%" id="tab_logic">
 						<thead class="table-reponsive" >
 							<tr>
 									<th hidden="yes" style="vertical-align: middle;" class="text-center">&nbsp;&nbsp;#&nbsp;&nbsp;</th>
@@ -200,11 +200,11 @@
 						<tbody>
 						<?php
 						foreach($hasil as $listhasil):
-						echo "<input type='hidden' value='".$listhasil->id_lokmm2."' name='id_lokmm2'>";
+						echo "<input type='hidden' value='".$listhasil->id_mm2lok."' name='id_mm2lok'>";
 						endforeach;
 						?>
 							<tr id='addr0'>
-								<td class="text-center" name="pasangan">M</td>
+								<td class="text-center" name="pasangan1">M</td>
 								<td><input type="text"  maxlength="3" name="a" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
 								<td><input type="text"  maxlength="3" name="b" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
 								<td><input type="text"  maxlength="3" name="c" class="form-control" onKeyPress="return goodchars(event,'0123456789',this)" onFocus="startCalc();" onBlur="stopCalc();"/></td>
@@ -233,7 +233,7 @@
 
 							</tr>
 							<tr id='addr1'>
-								<td class="text-center" name="pasangan1">UB</td>
+								<td class="text-center" name="pasangan2">UB</td>
 								<td><input type='text'  maxlength='3' name='a1' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' onFocus='startCalc();' onBlur='stopCalc();'/></td>
 								<td><input type='text'  maxlength='3' name='b1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
 								<td><input type='text'  maxlength='3' name='c1' onFocus='startCalc();' onBlur='stopCalc();' onKeyPress="return goodchars(event,'0123456789',this)" class='form-control input-md' /></td>
@@ -293,8 +293,8 @@
 						 }
 					  else
 						 {
-							foreach($gambar as $listhasil1):
-						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/".$listhasil1->GAMBAR."'>";
+							foreach($gambar2 as $listhasil1):
+						 	echo "<img style='height: 600px; width: 1020px;' src='".base_url()."assets/img/lokasi/".$listhasil1->GAMBAR2."'>";
 							endforeach;
 						}
 						?>                               

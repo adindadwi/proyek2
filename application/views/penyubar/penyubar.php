@@ -77,6 +77,9 @@
 										KETERANGAN
 									</th>
 									<th style="vertical-align: middle;" class="text-center">
+										STATUS
+									</th>
+									<th style="vertical-align: middle;" class="text-center">
 										AKSI
 									</th>
 								</tr>
@@ -87,7 +90,7 @@
 								foreach($hasil as $listhasil):
 									echo "<tr>";
 									echo "<td style='vertical-align: middle;' class='text-center'>".$i."</td>";
-									echo "<td class='text-center'>".$listhasil->no_gmb1."<br>".$listhasil->no_gmb2."</td>";
+									echo "<td class='text-center'>".$listhasil->n_gbr1."<br>".$listhasil->n_gbr2."</td>";
 									echo "<td style='vertical-align: middle;'>".$listhasil->lks."</td>";
 									echo "<td style='vertical-align: middle;'>".$listhasil->ryn."</td>";
 									echo "<td class='text-center'>".$listhasil->exsist."<br>".$listhasil->penylang."</td>";
@@ -155,14 +158,14 @@
 					</thead>
 					<tbody>
 					<tr>
-						<td class="text-center"><input type="text" name="nogmb" class="form-control1"></td>
-						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lokasi" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="n_gbr1" class="form-control1"></td>
+						<td style="vertical-align: middle" rowspan="2" class="text-center"><input type="text" name="lks" class="form-control1"></td>
 						<td><input type="text" name="exsist" class="form-control1"></td>
-						<td style="vertical-align: middle" class="text-center" rowspan="2"><input type="text" name="jml_ganggu" class="form-control1"></td>
+						<td style="vertical-align: middle" class="text-center" rowspan="2"><input type="text" name="jlm_gangguan" class="form-control1"></td>
 					</tr>
 					<tr>
-						<td class="text-center"><input type="text" name="nogmb1" class="form-control1"></td>
-						<td class="text-center"><input type="text" name="penyulang" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="n_gbr2" class="form-control1"></td>
+						<td class="text-center"><input type="text" name="penylang" class="form-control1"></td>
 					</tr>
 					</tbody>
 				</table>

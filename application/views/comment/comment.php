@@ -20,7 +20,7 @@
                           </div>
 	                      <font color="#ef4423"><?php echo form_error('username'); ?></font>
 	                      <div style="margin-top: 25px" class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-	                        <input id="login-password" type="read-only" class="form-control" name="rayon" value="<?php if($_SESSION['rayon']=="Semua"){echo"Area";}?>" placeholder="<?=$_SESSION['rayon']?>" readonly>
+	                        <input id="login-password" type="read-only" class="form-control" name="rayon2" value="<?php if($_SESSION['rayon']=="Semua"){echo"Area";}?>" placeholder="<?=$_SESSION['rayon']?>" readonly>
                           </div>
 	                      <font color="#ef4423"><?php echo form_error('password'); ?></font>
                           <br>

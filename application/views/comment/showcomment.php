@@ -14,7 +14,7 @@
 				echo"<p align='left'>";
 				echo "Name : ".$row['nama']."";
 				echo "<br \>";
-				echo "Rayon : ".$row['rayon']."";
+				echo "Rayon : ".$row['rayon2']."";
 				echo "<br \>";
 				echo "said : <i>".$row['isi']."</i>";
 				echo "<br \>";

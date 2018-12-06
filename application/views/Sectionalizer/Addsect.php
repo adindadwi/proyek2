@@ -3,7 +3,7 @@
      <h1>PRK.2015 DIT.1.11 </h1>
             <ol class="breadcrumb">
                <li><a href="#"><i class="fa fa-archive"></i> Sectionalizer</a></li>
-              <li><a href="<?php echo base_url()?>Section"><?php foreach($hasil as $listhasil): echo $listhasil->rayon; endforeach;?></a></li>
+              <li><a href="<?php echo base_url()?>Section"><?php foreach($hasil as $listhasil): echo $listhasil->wilayah; endforeach;?></a></li>
               <li class="active">Edit</li>
             </ol>
 </section>

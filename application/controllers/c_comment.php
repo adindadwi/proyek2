@@ -18,7 +18,7 @@ class C_comment extends CI_Controller
 				$this->load->model('m_comment');
 				$data=	array(
 							'nama'=>$_SESSION['nama'],
-							'rayon'=>$_SESSION['rayon'],
+							'rayon2'=>$_SESSION['rayon2'],
 							'isi'=>$_POST['komentar'],
 							'time'=>gmdate("Y-m-d H:i:s", time()+60*60*7)
 						);
@@ -38,8 +38,8 @@ class C_comment extends CI_Controller
 		}function showcomment()
 		{
 			$this->load->model('m_comment');
-			$_SESSION['rayon'] = $rayon;
-			$data['content']=$this->m_comment->get_com(10,0,$rayon);
+			$_SESSION['rayon2'] = $rayon2;
+			$data['content']=$this->m_comment->get_com(10,0,$rayon2);
 			$this->load->library('pagination');
 			$config['base_url']=base_url().'c_comment/showcomment';
 			$config['total_rows']=$this->m_comment->get_com_count();
